@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seven Barbershop | Santino Fornes - Estilo Clásico & Moderno</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'seven': ['Playfair Display', 'serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'seven-black': '#0a0a0a',
+                        'seven-dark': '#111111',
+                        'seven-gray': '#1a1a1a',
+                        'seven-white': '#f5f5f5',
+                        'seven-accent': '#d4d4d4',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out',
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'spin-slow': 'spin 20s linear infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-30px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-effect {
+            background: rgba(17, 17, 17, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .hero-bg {
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+            min-height: 100vh;
+        }
+        
+        /* LOGO ANIMADO CON FLOTACIÓN */
+        .logo-seven {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: #000;
+            border: 4px solid #fff;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 80px rgba(255,255,255,0.2);
+            /* Animación de flotación más pronunciada */
+            animation: floatLogo 3s ease-in-out infinite;
+            will-change: transform;
+        }
+        
+        @keyframes floatLogo {
+            0%, 100% { 
+                transform: translateY(0px); 
+            }
+            50% { 
+                transform: translateY(-30px); 
+            }
+        }
+        
+        .logo-seven::before {
+            content: '';
+            position: absolute;
+            inset: 12px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+        }
+        .logo-text-top {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: 10px;
+            position: absolute;
+            top: 50px;
+            text-transform: uppercase;
+            color: white;
+        }
+        .logo-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 9rem;
+            font-weight: 900;
+            line-height: 1;
+            z-index: 2;
+            text-shadow: 0 0 30px rgba(255,255,255,0.3);
+            color: white;
+        }
+        .logo-decorations {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 45px;
+        }
+        .razor-icon, .pole-icon {
+            width: 35px;
+            height: 70px;
+            background: #fff;
+        }
+        .razor-icon {
+            clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+        }
+        .pole-icon {
+            background: repeating-linear-gradient(
+                -45deg,
+                #fff,
+                #fff 8px,
+                transparent 8px,
+                transparent 16px
+            );
+            border: 2px solid #fff;
+            border-radius: 8px;
+        }
+        .logo-text-bottom {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 6px;
+            position: absolute;
+            bottom: 50px;
+            text-transform: uppercase;
+            color: white;
+        }
+        .swirls {
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            animation: spin-slow 20s linear infinite;
+        }
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        .calendar-day:hover:not(.disabled) {
+            background: rgba(255,255,255,0.1);
+            border-color: #fff;
+        }
+        .calendar-day.selected {
+            background: #fff;
+            color: #000;
+            font-weight: 700;
+        }
+        .calendar-day.disabled {
+            color: #444;
+            cursor: not-allowed;
+        }
+        .time-slot {
+            padding: 0.8rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .time-slot:hover:not(.disabled) {
+            border-color: #fff;
+        }
+        .time-slot.selected {
+            background: #fff;
+            color: #000;
+            border-color: #fff;
+        }
+        .time-slot.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            text-decoration: line-through;
+        }
+        .admin-hidden { display: none !important; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<base target="_blank">
+</head>
+<body class="bg-seven-black text-seven-white font-body overflow-x-hidden">
+
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 bg-black z-50 flex items-center justify-center transition-opacity duration-500">
+        <div class="text-center">
+            <div class="w-24 h-24 border-4 border-white border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <p class="font-seven text-2xl tracking-[0.3em] font-bold">SEVEN</p>
+            <p class="text-xs tracking-[0.5em] mt-2 text-gray-400">BARBERSHOP</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-40 transition-all duration-300 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="showSection('home')">
+                <div class="w-12 h-12 border-2 border-white rounded-full flex items-center justify-center bg-black">
+                    <span class="font-seven font-bold text-xl">7</span>
+                </div>
+                <div class="hidden md:block">
+                    <h1 class="font-seven text-xl font-bold tracking-wider">SEVEN</h1>
+                    <p class="text-[10px] text-gray-400 tracking-[0.2em]">BARBERSHOP</p>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8">
+                <a onclick="showSection('home')" class="hover:text-white text-gray-400 transition-colors text-sm tracking-wider cursor-pointer">INICIO</a>
+                <a onclick="showSection('servicios')" class="hover:text-white text-gray-400 transition-colors text-sm tracking-wider cursor-pointer">SERVICIOS</a>
+                <a onclick="showSection('booking')" class="hover:text-white text-gray-400 transition-colors text-sm tracking-wider cursor-pointer">RESERVAR</a>
+                <a onclick="showSection('galeria')" class="hover:text-white text-gray-400 transition-colors text-sm tracking-wider cursor-pointer">GALERÍA</a>
+                <a onclick="showSection('contacto')" class="hover:text-white text-gray-400 transition-colors text-sm tracking-wider cursor-pointer">CONTACTO</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button onclick="showSection('admin')" class="text-gray-400 hover:text-white transition-colors text-sm border border-gray-700 px-4 py-2 rounded-full hover:border-white">
+                    <i class="fas fa-lock mr-2"></i>Admin
+                </button>
+                <button onclick="showSection('booking')" class="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all transform hover:scale-105 text-sm">
+                    AGENDAR
+                </button>
+                <button class="md:hidden text-2xl" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black z-30 transform translate-x-full transition-transform duration-300 md:hidden pt-20">
+        <div class="flex flex-col items-center gap-8 text-xl">
+            <a onclick="showSection('home'); toggleMobileMenu()" class="hover:text-white">INICIO</a>
+            <a onclick="showSection('servicios'); toggleMobileMenu()" class="hover:text-white">SERVICIOS</a>
+            <a onclick="showSection('booking'); toggleMobileMenu()" class="hover:text-white">RESERVAR</a>
+            <a onclick="showSection('galeria'); toggleMobileMenu()" class="hover:text-white">GALERÍA</a>
+            <a onclick="showSection('contacto'); toggleMobileMenu()" class="hover:text-white">CONTACTO</a>
+            <a onclick="showSection('admin'); toggleMobileMenu()" class="hover:text-white">ADMIN</a>
+        </div>
+    </div>
+
+    <!-- Sections -->
+    <main id="main-content">
+        
+        <!-- HOME SECTION -->
+        <section id="home" class="section-active">
+            <!-- Hero -->
+            <div class="hero-bg flex flex-col items-center justify-center relative px-4 pt-32 pb-20">
+                <div class="absolute inset-0 opacity-10 pointer-events-none">
+                    <div class="absolute top-20 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-20 right-10 w-96 h-96 bg-gray-800 rounded-full blur-3xl"></div>
+                </div>
+                
+                <!-- LOGO CON ANIMACIÓN DE FLOTACIÓN -->
+                <div class="logo-seven mb-12 cursor-pointer" onclick="showSection('booking')">
+                    <div class="swirls"></div>
+                    <span class="logo-text-top">SEVEN</span>
+                    <div class="logo-decorations">
+                        <div class="razor-icon"></div>
+                        <div class="pole-icon"></div>
+                    </div>
+                    <span class="logo-number">7</span>
+                    <span class="logo-text-bottom">BARBERSHOP</span>
+                </div>
+
+                <div class="text-center max-w-2xl mx-auto animate-fade-in-up relative z-10">
+                    <h2 class="font-seven text-5xl md:text-7xl font-bold mb-4 tracking-tight">SANTINO FORNES</h2>
+                    <p class="text-xl md:text-2xl text-gray-400 mb-8 font-light tracking-widest">BARBERO PROFESIONAL</p>
+                    <p class="text-gray-400 mb-12 text-lg leading-relaxed px-4">
+                        Especialista en cortes clásicos y modernos. 
+                        <br>Donde la tradición se encuentra con el estilo contemporáneo.
+                    </p>
+                    
+                    <div class="flex flex-col md:flex-row gap-4 justify-center">
+                        <button onclick="showSection('booking')" class="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition-all transform hover:scale-105 flex items-center justify-center gap-2 shadow-lg">
+                            <i class="fas fa-calendar-alt"></i>
+                            RESERVAR TURNO
+                        </button>
+                        <a href="https://www.instagram.com/santinofornes7/" target="_blank" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2">
+                            <i class="fab fa-instagram"></i>
+                            @santinofornes7
+                        </a>
+                    </div>
+
+                    <div class="mt-16 flex justify-center gap-8 text-sm text-gray-500 flex-wrap">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Ismael Orbelli 69</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-phone"></i>
+                            <span>2604-812928</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-8 animate-bounce">
+                    <i class="fas fa-chevron-down text-2xl text-gray-600"></i>
+                </div>
+            </div>
+
+            <!-- Stats - AÑOS CAMBIADOS A 3 -->
+            <div class="bg-seven-black py-20 border-t border-gray-900">
+                <div class="container mx-auto px-6">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                        <div class="p-6 border border-gray-800 rounded-2xl hover:border-white transition-colors group">
+                            <i class="fas fa-cut text-4xl mb-4 text-gray-600 group-hover:text-white transition-colors"></i>
+                            <h3 class="font-seven text-3xl font-bold mb-2 counter" data-target="1500">0</h3>
+                            <p class="text-gray-400 text-sm">Cortes Realizados</p>
+                        </div>
+                        <div class="p-6 border border-gray-800 rounded-2xl hover:border-white transition-colors group">
+                            <i class="fas fa-star text-4xl mb-4 text-gray-600 group-hover:text-white transition-colors"></i>
+                            <h3 class="font-seven text-3xl font-bold mb-2 counter" data-target="5">0</h3>
+                            <p class="text-gray-400 text-sm">Estrellas Rating</p>
+                        </div>
+                        <div class="p-6 border border-gray-800 rounded-2xl hover:border-white transition-colors group">
+                            <i class="fas fa-calendar-check text-4xl mb-4 text-gray-600 group-hover:text-white transition-colors"></i>
+                            <h3 class="font-seven text-3xl font-bold mb-2 counter" data-target="365">0</h3>
+                            <p class="text-gray-400 text-sm">Días Disponibles</p>
+                        </div>
+                        <div class="p-6 border border-gray-800 rounded-2xl hover:border-white transition-colors group">
+                            <i class="fas fa-trophy text-4xl mb-4 text-gray-600 group-hover:text-white transition-colors"></i>
+                            <!-- CAMBIADO A 3 AÑOS -->
+                            <h3 class="font-seven text-3xl font-bold mb-2 counter" data-target="3">0</h3>
+                            <p class="text-gray-400 text-sm">Años Experiencia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICIOS SECTION -->
+        <section id="servicios" class="hidden bg-seven-dark py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="font-seven text-4xl md:text-5xl font-bold mb-4">SERVICIOS</h2>
+                    <div class="w-24 h-1 bg-white mx-auto mb-4"></div>
+                    <p class="text-gray-400">Calidad y precisión en cada corte</p>
+                </div>
+
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+                    <div class="bg-seven-gray rounded-3xl overflow-hidden hover-lift border border-gray-800 group">
+                        <div class="h-48 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center relative overflow-hidden">
+                            <i class="fas fa-cut text-6xl text-gray-600 group-hover:text-white transition-all"></i>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-seven text-2xl font-bold mb-2">Corte Clásico</h3>
+                            <p class="text-gray-400 mb-4">Incluye lavado y styling</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold">$3.000</span>
+                                <button onclick="selectService('Corte de Pelo')" class="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition-colors">
+                                    Reservar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-seven-gray rounded-3xl overflow-hidden hover-lift border border-gray-800 group">
+                        <div class="h-48 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center relative overflow-hidden">
+                            <i class="fas fa-air-freshener text-6xl text-gray-600 group-hover:text-white transition-all"></i>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-seven text-2xl font-bold mb-2">Arreglo de Barba</h3>
+                            <p class="text-gray-400 mb-4">Perfilado y cuidado</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold">$2.000</span>
+                                <button onclick="selectService('Arreglo de Barba')" class="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition-colors">
+                                    Reservar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-seven-gray rounded-3xl overflow-hidden hover-lift border border-gray-800 group">
+                        <div class="h-48 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center relative overflow-hidden">
+                            <i class="fas fa-magic text-6xl text-gray-600 group-hover:text-white transition-all"></i>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-seven text-2xl font-bold mb-2">Combo Corte + Barba</h3>
+                            <p class="text-gray-400 mb-4">Pack completo de cuidado</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold">$4.500</span>
+                                <button onclick="selectService('Combo Corte + Barba')" class="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition-colors">
+                                    Reservar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-seven-gray rounded-3xl overflow-hidden hover-lift border border-gray-800 group">
+                        <div class="h-48 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center relative overflow-hidden">
+                            <i class="fas fa-razor text-6xl text-gray-600 group-hover:text-white transition-all"></i>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-seven text-2xl font-bold mb-2">Afeitado Clásico</h3>
+                            <p class="text-gray-400 mb-4">Con navaja y toallas calientes</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold">$2.500</span>
+                                <button onclick="selectService('Afeitado Clásico')" class="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition-colors">
+                                    Reservar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOOKING SECTION -->
+        <section id="booking" class="hidden bg-seven-black py-24 min-h-screen">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <div class="text-center mb-12">
+                    <h2 class="font-seven text-4xl md:text-5xl font-bold mb-4">RESERVAR TURNO</h2>
+                    <div class="w-24 h-1 bg-white mx-auto mb-4"></div>
+                    <p class="text-gray-400">Selecciona fecha, hora y completa tus datos</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Calendar -->
+                    <div class="bg-seven-gray p-8 rounded-3xl border border-gray-800">
+                        <h3 class="font-seven text-2xl font-bold mb-6 flex items-center gap-3">
+                            <i class="fas fa-calendar-alt"></i>
+                            Seleccionar Fecha
+                        </h3>
+                        <div id="calendar" class="grid grid-cols-7 gap-2 mb-6">
+                            <!-- Generated by JS -->
+                        </div>
+                        
+                        <h4 class="font-bold mb-4 text-lg">Horarios Disponibles</h4>
+                        <div id="timeSlots" class="grid grid-cols-3 gap-2">
+                            <p class="col-span-3 text-gray-500 text-center py-4">Selecciona una fecha primero</p>
+                        </div>
+                    </div>
+
+                    <!-- Form -->
+                    <div class="bg-seven-gray p-8 rounded-3xl border border-gray-800">
+                        <h3 class="font-seven text-2xl font-bold mb-6 flex items-center gap-3">
+                            <i class="fas fa-user"></i>
+                            Tus Datos
+                        </h3>
+                        <form id="bookingForm" onsubmit="handleBooking(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-2">Nombre Completo</label>
+                                <input type="text" id="clientName" required 
+                                    class="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 focus:border-white focus:outline-none transition-colors"
+                                    placeholder="Ej: Juan Pérez">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-2">Correo Electrónico</label>
+                                <input type="email" id="clientEmail" required 
+                                    class="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 focus:border-white focus:outline-none transition-colors"
+                                    placeholder="ejemplo@email.com">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-2">Teléfono</label>
+                                <input type="tel" id="clientPhone" required 
+                                    class="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 focus:border-white focus:outline-none transition-colors"
+                                    placeholder="2604XXXXXX">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-2">Servicio</label>
+                                <select id="service" required 
+                                    class="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 focus:border-white focus:outline-none transition-colors text-white">
+                                    <option value="">Selecciona un servicio</option>
+                                    <option value="Corte de Pelo">Corte de Pelo - $3.000</option>
+                                    <option value="Arreglo de Barba">Arreglo de Barba - $2.000</option>
+                                    <option value="Combo Corte + Barba">Combo Corte + Barba - $4.500</option>
+                                    <option value="Afeitado Clásico">Afeitado Clásico - $2.500</option>
+                                </select>
+                            </div>
+
+                            <div class="pt-4">
+                                <button type="submit" id="submitBtn" disabled
+                                    class="w-full bg-white text-black py-4 rounded-xl font-bold hover:bg-gray-200 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                                    <i class="fas fa-check-circle"></i>
+                                    CONFIRMAR RESERVA
+                                </button>
+                                <p id="selectionMsg" class="text-center text-sm text-gray-500 mt-2">
+                                    Selecciona fecha y hora para continuar
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALERIA SECTION -->
+        <section id="galeria" class="hidden bg-seven-dark py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="font-seven text-4xl md:text-5xl font-bold mb-4">GALERÍA</h2>
+                    <div class="w-24 h-1 bg-white mx-auto mb-4"></div>
+                    <p class="text-gray-400 mb-8">Trabajos de @santinofornes7</p>
+                    <a href="https://www.instagram.com/santinofornes7/" target="_blank" 
+                        class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white px-8 py-3 rounded-full font-bold hover:opacity-90 transition-opacity">
+                        <i class="fab fa-instagram text-xl"></i>
+                        Ver Instagram
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto opacity-60">
+                    <div class="aspect-square bg-gray-800 rounded-2xl flex items-center justify-center border border-gray-700">
+                        <i class="fas fa-image text-4xl text-gray-600"></i>
+                    </div>
+                    <div class="aspect-square bg-gray-800 rounded-2xl flex items-center justify-center border border-gray-700">
+                        <i class="fas fa-image text-4xl text-gray-600"></i>
+                    </div>
+                    <div class="aspect-square bg-gray-800 rounded-2xl flex items-center justify-center border border-gray-700">
+                        <i class="fas fa-image text-4xl text-gray-600"></i>
+                    </div>
+                    <div class="aspect-square bg-gray-800 rounded-2xl flex items-center justify-center border border-gray-700">
+                        <i class="fas fa-image text-4xl text-gray-600"></i>
+                    </div>
+                </div>
+                <p class="text-center text-gray-500 mt-8">Conecta tu Instagram para mostrar tus trabajos aquí</p>
+            </div>
+        </section>
+
+        <!-- CONTACTO SECTION -->
+        <section id="contacto" class="hidden bg-seven-black py-24">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="text-center mb-12">
+                    <h2 class="font-seven text-4xl md:text-5xl font-bold mb-4">CONTACTO</h2>
+                    <div class="w-24 h-1 bg-white mx-auto mb-4"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-seven-gray flex items-center justify-center flex-shrink-0 border border-gray-700">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Dirección</h4>
+                                <p class="text-gray-400">Ismael Orbelli 69</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-seven-gray flex items-center justify-center flex-shrink-0 border border-gray-700">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Teléfono</h4>
+                                <p class="text-gray-400">2604-812928</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-seven-gray flex items-center justify-center flex-shrink-0 border border-gray-700">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Email</h4>
+                                <p class="text-gray-400">ruizsantino28@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-seven-gray flex items-center justify-center flex-shrink-0 border border-gray-700">
+                                <i class="fab fa-instagram text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Instagram</h4>
+                                <a href="https://www.instagram.com/santinofornes7/" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                                    @santinofornes7
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="pt-4">
+                            <a href="https://www.instagram.com/santinofornes7/" target="_blank" 
+                                class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white px-6 py-3 rounded-full font-bold hover:opacity-90 transition-opacity w-full justify-center">
+                                <i class="fab fa-instagram"></i>
+                                Seguir a Santino
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-seven-gray p-8 rounded-3xl border border-gray-800">
+                        <h3 class="font-seven text-xl font-bold mb-6">Horarios</h3>
+                        <div class="space-y-3 text-gray-400">
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span>Lunes a Viernes</span>
+                                <span class="text-white">09:00 - 18:00</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span>Sábados</span>
+                                <span class="text-white">09:00 - 13:00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Domingos</span>
+                                <span class="text-gray-600">Cerrado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADMIN SECTION -->
+        <section id="admin" class="hidden bg-seven-black py-24 min-h-screen">
+            <div class="container mx-auto px-6 max-w-5xl">
+                <div class="text-center mb-12">
+                    <h2 class="font-seven text-4xl md:text-5xl font-bold mb-4">PANEL DE ADMINISTRACIÓN</h2>
+                    <div class="w-24 h-1 bg-white mx-auto mb-4"></div>
+                </div>
+
+                <!-- Login Form -->
+                <div id="loginForm" class="max-w-md mx-auto bg-seven-gray p-8 rounded-3xl border border-gray-800">
+                    <div class="text-center mb-8">
+                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-lock text-black text-2xl"></i>
+                        </div>
+                        <h3 class="font-seven text-2xl font-bold">Acceso Administrador</h3>
+                        <p class="text-gray-400 text-sm mt-2">Seven Barbershop</p>
+                    </div>
+                    
+                    <form onsubmit="handleLogin(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-2">Usuario</label>
+                            <input type="email" id="adminEmail" required 
+                                class="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 focus:border-white focus:outline-none"
+                                placeholder="ruizsantino28@gmail.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-2">Contraseña</label>
+                            <input type="password" id="adminPass" required 
+                                class="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 focus:border-white focus:outline-none"
+                                placeholder="••••••••">
+                        </div>
+                        <button type="submit" class="w-full bg-white text-black py-4 rounded-xl font-bold hover:bg-gray-200 transition-colors">
+                            INGRESAR
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Admin Dashboard -->
+                <div id="adminDashboard" class="hidden space-y-8">
+                    <!-- Stats -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-seven-gray p-6 rounded-2xl border border-gray-800">
+                            <h4 class="text-gray-400 text-sm mb-2">Turnos Hoy</h4>
+                            <p class="text-3xl font-seven font-bold" id="statToday">0</p>
+                        </div>
+                        <div class="bg-seven-gray p-6 rounded-2xl border border-gray-800">
+                            <h4 class="text-gray-400 text-sm mb-2">Pendientes</h4>
+                            <p class="text-3xl font-seven font-bold text-yellow-500" id="statPending">0</p>
+                        </div>
+                        <div class="bg-seven-gray p-6 rounded-2xl border border-gray-800">
+                            <h4 class="text-gray-400 text-sm mb-2">Total Reservas</h4>
+                            <p class="text-3xl font-seven font-bold" id="statTotal">0</p>
+                        </div>
+                    </div>
+
+                    <!-- Availability Config -->
+                    <div class="bg-seven-gray p-8 rounded-3xl border border-gray-800">
+                        <h3 class="font-seven text-2xl font-bold mb-6">Configurar Disponibilidad</h3>
+                        
+                        <div class="mb-6">
+                            <label class="block text-sm text-gray-400 mb-3">Días disponibles</label>
+                            <div class="flex flex-wrap gap-2" id="daysSelector">
+                                <button type="button" data-day="1" class="day-btn px-4 py-2 rounded-full border border-gray-600 text-sm hover:border-white transition-colors">Lun</button>
+                                <button type="button" data-day="2" class="day-btn px-4 py-2 rounded-full border border-gray-600 text-sm hover:border-white transition-colors">Mar</button>
+                                <button type="button" data-day="3" class="day-btn px-4 py-2 rounded-full border border-gray-600 text-sm hover:border-white transition-colors">Mié</button>
+                                <button type="button" data-day="4" class="day-btn px-4 py-2 rounded-full border border-gray-600 text-sm hover:border-white transition-colors">Jue</button>
+                                <button type="button" data-day="5" class="day-btn px-4 py-2 rounded-full border border-gray-600 text-sm hover:border-white transition-colors">Vie</button>
+                                <button type="button" data-day="6" class="day-btn px-4 py-2 rounded-full border border-gray-600 text-sm hover:border-white transition-colors">Sáb</button>
+                                <button type="button" data-day="0" class="day-btn px-4 py-2 rounded-full border border-gray-600 text-sm hover:border-white transition-colors">Dom</button>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-2">Horario inicio</label>
+                                <select id="startTime" class="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 focus:border-white focus:outline-none">
+                                    <option value="09:00">09:00</option>
+                                    <option value="10:00">10:00</option>
+                                    <option value="11:00">11:00</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-2">Horario fin</label>
+                                <select id="endTime" class="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 focus:border-white focus:outline-none">
+                                    <option value="18:00">18:00</option>
+                                    <option value="19:00">19:00</option>
+                                    <option value="20:00">20:00</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button onclick="saveAvailability()" class="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-gray-200 transition-colors">
+                            Guardar Configuración
+                        </button>
+                    </div>
+
+                    <!-- Appointments List -->
+                    <div class="bg-seven-gray p-8 rounded-3xl border border-gray-800">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="font-seven text-2xl font-bold">Turnos Reservados</h3>
+                            <button onclick="logoutAdmin()" class="text-red-500 hover:text-red-400 text-sm border border-red-500 px-4 py-2 rounded-full">
+                                Cerrar Sesión
+                            </button>
+                        </div>
+                        
+                        <div id="appointmentsList" class="space-y-4">
+                            <p class="text-gray-500 text-center py-8">No hay turnos reservados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-white text-black px-6 py-4 rounded-xl shadow-2xl transform translate-y-20 opacity-0 transition-all duration-300 z-50 font-bold flex items-center gap-3 border-l-4 border-green-500">
+        <i class="fas fa-check-circle text-green-500"></i>
+        <span id="toastMsg">Mensaje</span>
+    </div>
+
+    <script>
+        // Data & Config
+        const ADMIN_CREDENTIALS = {
+            email: 'ruizsantino28@gmail.com',
+            password: 'Diamante01'
+        };
+
+        let availability = {
+            days: [1, 2, 3, 4, 5], // Mon-Fri default
+            startTime: '09:00',
+            endTime: '18:00'
+        };
+
+        let selectedDate = null;
+        let selectedTime = null;
+        let isAdmin = false;
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').style.opacity = '0';
+                setTimeout(() => document.getElementById('preloader').remove(), 500);
+            }, 1500);
+
+            loadData();
+            initCalendar();
+            initAvailabilityUI();
+            initCounters();
+            
+            // Check session
+            if (localStorage.getItem('sevenAdmin') === 'true') {
+                isAdmin = true;
+            }
+
+            // Navbar scroll
+            window.addEventListener('scroll', () => {
+                const nav = document.getElementById('navbar');
+                if (window.scrollY > 50) {
+                    nav.classList.add('glass-effect');
+                } else {
+                    nav.classList.remove('glass-effect');
+                }
+            });
+        });
+
+        function loadData() {
+            const saved = localStorage.getItem('sevenAvailability');
+            if (saved) availability = JSON.parse(saved);
+        }
+
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('main > section').forEach(s => s.classList.add('hidden'));
+            document.querySelectorAll('main > section').forEach(s => s.classList.remove('section-active'));
+            
+            // Show target
+            const target = document.getElementById(sectionId);
+            target.classList.remove('hidden');
+            target.classList.add('section-active');
+            
+            window.scrollTo(0, 0);
+
+            if (sectionId === 'admin' && isAdmin) {
+                showAdminDashboard();
+            } else if (sectionId === 'admin') {
+                document.getElementById('loginForm').classList.remove('hidden');
+                document.getElementById('adminDashboard').classList.add('hidden');
+            }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('translate-x-full');
+        }
+
+        // Calendar Logic
+        function initCalendar() {
+            const calendar = document.getElementById('calendar');
+            const today = new Date();
+            const month = today.getMonth();
+            const year = today.getFullYear();
+            
+            // Headers
+            const days = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+            calendar.innerHTML = days.map(d => `<div class="text-center text-xs text-gray-500 py-2">${d}</div>`).join('');
+            
+            // Days
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            
+            // Empty slots
+            for (let i = 0; i < firstDay; i++) {
+                calendar.innerHTML += `<div></div>`;
+            }
+            
+            // Days
+            for (let i = 1; i <= daysInMonth; i++) {
+                const date = new Date(year, month, i);
+                const dayDiv = document.createElement('div');
+                dayDiv.className = 'calendar-day';
+                dayDiv.textContent = i;
+                
+                if (!isAvailable(date)) {
+                    dayDiv.classList.add('disabled');
+                } else {
+                    dayDiv.onclick = () => selectDate(date, dayDiv);
+                }
+                
+                calendar.appendChild(dayDiv);
+            }
+        }
+
+        function isAvailable(date) {
+            const day = date.getDay();
+            const today = new Date();
+            today.setHours(0,0,0,0);
+            return availability.days.includes(day) && date >= today;
+        }
+
+        function selectDate(date, el) {
+            document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
+            el.classList.add('selected');
+            selectedDate = date;
+            renderTimeSlots(date);
+        }
+
+        function renderTimeSlots(date) {
+            const container = document.getElementById('timeSlots');
+            const appointments = getAppointments();
+            const dateStr = date.toISOString().split('T')[0];
+            const booked = appointments.filter(a => a.date === dateStr).map(a => a.time);
+            
+            const start = parseInt(availability.startTime);
+            const end = parseInt(availability.endTime);
+            
+            container.innerHTML = '';
+            
+            for (let h = start; h < end; h++) {
+                const time = `${h.toString().padStart(2, '0')}:00`;
+                const slot = document.createElement('div');
+                slot.className = 'time-slot';
+                slot.textContent = time;
+                
+                if (booked.includes(time)) {
+                    slot.classList.add('disabled');
+                } else {
+                    slot.onclick = () => selectTime(time, slot);
+                }
+                
+                container.appendChild(slot);
+            }
+            
+            updateSubmitButton();
+        }
+
+        function selectTime(time, el) {
+            document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+            el.classList.add('selected');
+            selectedTime = time;
+            updateSubmitButton();
+        }
+
+        function updateSubmitButton() {
+            const btn = document.getElementById('submitBtn');
+            const msg = document.getElementById('selectionMsg');
+            
+            if (selectedDate && selectedTime) {
+                btn.disabled = false;
+                msg.textContent = `Fecha: ${selectedDate.toLocaleDateString()} - Hora: ${selectedTime}`;
+                msg.classList.remove('text-gray-500');
+                msg.classList.add('text-white');
+            } else {
+                btn.disabled = true;
+                msg.textContent = 'Selecciona fecha y hora para continuar';
+                msg.classList.add('text-gray-500');
+                msg.classList.remove('text-white');
+            }
+        }
+
+        function handleBooking(e) {
+            e.preventDefault();
+            
+            const appointment = {
+                id: Date.now(),
+                name: document.getElementById('clientName').value,
+                email: document.getElementById('clientEmail').value,
+                phone: document.getElementById('clientPhone').value,
+                service: document.getElementById('service').value,
+                date: selectedDate.toISOString().split('T')[0],
+                time: selectedTime,
+                status: 'pending',
+                createdAt: new Date().toISOString()
+            };
+            
+            const appointments = getAppointments();
+            appointments.push(appointment);
+            localStorage.setItem('sevenAppointments', JSON.stringify(appointments));
+            
+            showToast('¡Turno reservado con éxito! Te esperamos.');
+            e.target.reset();
+            selectedDate = null;
+            selectedTime = null;
+            document.querySelectorAll('.calendar-day, .time-slot').forEach(el => el.classList.remove('selected'));
+            document.getElementById('timeSlots').innerHTML = '<p class="col-span-3 text-gray-500 text-center py-4">Selecciona una fecha primero</p>';
+            updateSubmitButton();
+        }
+
+        function getAppointments() {
+            return JSON.parse(localStorage.getItem('sevenAppointments') || '[]');
+        }
+
+        function selectService(service) {
+            showSection('booking');
+            document.getElementById('service').value = service;
+        }
+
+        // Admin Logic
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('adminEmail').value;
+            const pass = document.getElementById('adminPass').value;
+            
+            if (email === ADMIN_CREDENTIALS.email && pass === ADMIN_CREDENTIALS.password) {
+                isAdmin = true;
+                localStorage.setItem('sevenAdmin', 'true');
+                showAdminDashboard();
+                showToast('Bienvenido, Santino');
+            } else {
+                showToast('Credenciales incorrectas', 'error');
+            }
+        }
+
+        function logoutAdmin() {
+            isAdmin = false;
+            localStorage.removeItem('sevenAdmin');
+            showSection('home');
+            showToast('Sesión cerrada');
+        }
+
+        function showAdminDashboard() {
+            document.getElementById('loginForm').classList.add('hidden');
+            document.getElementById('adminDashboard').classList.remove('hidden');
+            updateAdminStats();
+            renderAppointments();
+        }
+
+        function updateAdminStats() {
+            const apps = getAppointments();
+            const today = new Date().toISOString().split('T')[0];
+            
+            document.getElementById('statToday').textContent = apps.filter(a => a.date === today).length;
+            document.getElementById('statPending').textContent = apps.filter(a => a.status === 'pending').length;
+            document.getElementById('statTotal').textContent = apps.length;
+        }
+
+        function renderAppointments() {
+            const list = document.getElementById('appointmentsList');
+            const apps = getAppointments().sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            if (apps.length === 0) {
+                list.innerHTML = '<p class="text-gray-500 text-center py-8">No hay turnos reservados</p>';
+                return;
+            }
+            
+            list.innerHTML = apps.map(app => `
+                <div class="bg-black p-6 rounded-2xl border border-gray-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <div class="flex items-center gap-3 mb-1">
+                            <h4 class="font-bold text-lg">${app.name}</h4>
+                            <span class="px-2 py-1 rounded text-xs ${app.status === 'confirmed' ? 'bg-green-500 text-black' : 'bg-yellow-500 text-black'}">
+                                ${app.status === 'confirmed' ? 'Confirmado' : 'Pendiente'}
+                            </span>
+                        </div>
+                        <p class="text-gray-400 text-sm">${app.service}</p>
+                        <p class="text-gray-500 text-sm mt-1">
+                            <i class="fas fa-calendar mr-2"></i>${new Date(app.date).toLocaleDateString()} 
+                            <i class="fas fa-clock ml-3 mr-2"></i>${app.time}
+                        </p>
+                        <p class="text-gray-600 text-xs mt-1">${app.phone} | ${app.email}</p>
+                    </div>
+                    <div class="flex gap-2 w-full md:w-auto">
+                        ${app.status !== 'confirmed' ? `
+                            <button onclick="confirmAppointment(${app.id})" class="flex-1 md:flex-none bg-white text-black px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-200">
+                                Confirmar
+                            </button>
+                        ` : ''}
+                        <button onclick="deleteAppointment(${app.id})" class="flex-1 md:flex-none border border-red-500 text-red-500 px-4 py-2 rounded-full text-sm hover:bg-red-500 hover:text-white transition-colors">
+                            Eliminar
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function confirmAppointment(id) {
+            const apps = getAppointments();
+            const app = apps.find(a => a.id === id);
+            if (app) {
+                app.status = 'confirmed';
+                localStorage.setItem('sevenAppointments', JSON.stringify(apps));
+                renderAppointments();
+                updateAdminStats();
+                showToast('Turno confirmado');
+            }
+        }
+
+        function deleteAppointment(id) {
+            if (!confirm('¿Eliminar este turno?')) return;
+            let apps = getAppointments().filter(a => a.id !== id);
+            localStorage.setItem('sevenAppointments', JSON.stringify(apps));
+            renderAppointments();
+            updateAdminStats();
+            showToast('Turno eliminado');
+        }
+
+        // Availability
+        function initAvailabilityUI() {
+            document.querySelectorAll('.day-btn').forEach(btn => {
+                const day = parseInt(btn.dataset.day);
+                if (availability.days.includes(day)) {
+                    btn.classList.add('bg-white', 'text-black', 'border-white');
+                    btn.classList.remove('border-gray-600');
+                }
+                btn.onclick = () => {
+                    btn.classList.toggle('bg-white');
+                    btn.classList.toggle('text-black');
+                    btn.classList.toggle('border-white');
+                    btn.classList.toggle('border-gray-600');
+                };
+            });
+            
+            document.getElementById('startTime').value = availability.startTime;
+            document.getElementById('endTime').value = availability.endTime;
+        }
+
+        function saveAvailability() {
+            const selectedDays = [];
+            document.querySelectorAll('.day-btn').forEach(btn => {
+                if (btn.classList.contains('bg-white')) {
+                    selectedDays.push(parseInt(btn.dataset.day));
+                }
+            });
+            
+            availability = {
+                days: selectedDays,
+                startTime: document.getElementById('startTime').value,
+                endTime: document.getElementById('endTime').value
+            };
+            
+            localStorage.setItem('sevenAvailability', JSON.stringify(availability));
+            showToast('Disponibilidad actualizada');
+            
+            // Refresh calendar
+            document.getElementById('calendar').innerHTML = '';
+            initCalendar();
+        }
+
+        // UI Helpers
+        function showToast(msg, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            
+            toastMsg.textContent = msg;
+            if (type === 'error') {
+                toast.classList.remove('border-green-500');
+                toast.classList.add('border-red-500');
+                toast.querySelector('i').className = 'fas fa-exclamation-circle text-red-500';
+            } else {
+                toast.classList.remove('border-red-500');
+                toast.classList.add('border-green-500');
+                toast.querySelector('i').className = 'fas fa-check-circle text-green-500';
+            }
+            
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        function initCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseFloat(counter.dataset.target);
+                        const duration = 2000;
+                        const step = target / (duration / 16);
+                        let current = 0;
+                        
+                        const timer = setInterval(() => {
+                            current += step;
+                            if (current >= target) {
+                                counter.textContent = target % 1 === 0 ? target : target.toFixed(1);
+                                clearInterval(timer);
+                            } else {
+                                counter.textContent = Math.floor(current);
+                            }
+                        }, 16);
+                        
+                        observer.unobserve(counter);
+                    }
+                });
+            });
+            
+            counters.forEach(counter => observer.observe(counter));
+        }
+    </script>
+</body>
+</html>
