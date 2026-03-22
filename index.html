@@ -6,7 +6,7 @@
     <title>Seven Barbershop | Santino Fornes - Estilo Clásico & Moderno</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -16,15 +16,16 @@
                         'body': ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        'seven-black': '#0a0a0a',
-                        'seven-dark': '#111111',
-                        'seven-gray': '#1a1a1a',
+                        'seven-black': '#050505',
+                        'seven-dark': '#0a0a0a',
+                        'seven-gray': '#111111',
+                        'seven-light': '#1a1a1a',
+                        'seven-accent': '#c9a962',
                         'seven-white': '#f5f5f5',
-                        'seven-accent': '#d4d4d4',
                     },
                     animation: {
                         'fade-in-up': 'fadeInUp 0.8s ease-out',
-                        'float': 'float 3s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
                         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                         'spin-slow': 'spin 20s linear infinite',
                     },
@@ -35,7 +36,7 @@
                         },
                         float: {
                             '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-30px)' },
+                            '50%': { transform: 'translateY(-20px)' },
                         }
                     }
                 }
@@ -44,7 +45,7 @@
     </script>
     <style>
         .glass-effect {
-            background: rgba(17, 17, 17, 0.95);
+            background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -57,53 +58,45 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
         .hero-bg {
-            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+            background: linear-gradient(to bottom, rgba(5,5,5,0.8), rgba(5,5,5,1)), url('https://kimi-web-img.moonshot.cn/img/www.shutterstock.com/cc7a413f7f56b19fc02b86308e054617e318569d.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             min-height: 100vh;
         }
         
-        /* LOGO ANIMADO CON FLOTACIÓN */
         .logo-seven {
             width: 280px;
             height: 280px;
             border-radius: 50%;
-            background: #000;
-            border: 4px solid #fff;
+            background: radial-gradient(circle at 30% 30%, #1a1a1a, #000);
+            border: 3px solid #c9a962;
             position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 80px rgba(255,255,255,0.2);
-            /* Animación de flotación más pronunciada */
-            animation: floatLogo 3s ease-in-out infinite;
+            box-shadow: 0 0 80px rgba(201, 169, 98, 0.3), inset 0 0 60px rgba(0,0,0,0.8);
+            animation: float 6s ease-in-out infinite;
             will-change: transform;
-        }
-        
-        @keyframes floatLogo {
-            0%, 100% { 
-                transform: translateY(0px); 
-            }
-            50% { 
-                transform: translateY(-30px); 
-            }
         }
         
         .logo-seven::before {
             content: '';
             position: absolute;
-            inset: 12px;
-            border: 2px solid #fff;
+            inset: 15px;
+            border: 1px solid rgba(201, 169, 98, 0.3);
             border-radius: 50%;
         }
         .logo-text-top {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 900;
-            letter-spacing: 10px;
+            letter-spacing: 12px;
             position: absolute;
-            top: 50px;
+            top: 55px;
             text-transform: uppercase;
-            color: white;
+            color: #c9a962;
         }
         .logo-number {
             font-family: 'Playfair Display', serif;
@@ -111,8 +104,11 @@
             font-weight: 900;
             line-height: 1;
             z-index: 2;
-            text-shadow: 0 0 30px rgba(255,255,255,0.3);
+            text-shadow: 0 0 40px rgba(201, 169, 98, 0.5);
             color: white;
+            background: linear-gradient(to bottom, #fff, #c9a962);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .logo-decorations {
             position: absolute;
@@ -120,12 +116,12 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 45px;
+            padding: 0 50px;
         }
         .razor-icon, .pole-icon {
-            width: 35px;
-            height: 70px;
-            background: #fff;
+            width: 30px;
+            height: 60px;
+            background: #c9a962;
         }
         .razor-icon {
             clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
@@ -133,29 +129,29 @@
         .pole-icon {
             background: repeating-linear-gradient(
                 -45deg,
-                #fff,
-                #fff 8px,
-                transparent 8px,
-                transparent 16px
+                #c9a962,
+                #c9a962 6px,
+                transparent 6px,
+                transparent 12px
             );
-            border: 2px solid #fff;
-            border-radius: 8px;
+            border: 2px solid #c9a962;
+            border-radius: 6px;
         }
         .logo-text-bottom {
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            letter-spacing: 6px;
+            letter-spacing: 8px;
             position: absolute;
-            bottom: 50px;
+            bottom: 55px;
             text-transform: uppercase;
-            color: white;
+            color: #fff;
         }
         .swirls {
             position: absolute;
-            width: 220px;
-            height: 220px;
-            border: 2px solid rgba(255,255,255,0.3);
+            width: 240px;
+            height: 240px;
+            border: 1px solid rgba(201, 169, 98, 0.2);
             border-radius: 50%;
             border-left-color: transparent;
             border-right-color: transparent;
@@ -170,19 +166,28 @@
             cursor: pointer;
             transition: all 0.3s;
             font-size: 0.9rem;
+            border-radius: 12px;
+            margin: 2px;
         }
         .calendar-day:hover:not(.disabled) {
-            background: rgba(255,255,255,0.1);
-            border-color: #fff;
+            background: rgba(201, 169, 98, 0.2);
+            border-color: #c9a962;
+            transform: scale(1.05);
         }
         .calendar-day.selected {
-            background: #fff;
+            background: #c9a962;
             color: #000;
             font-weight: 700;
+            border-color: #c9a962;
         }
         .calendar-day.disabled {
-            color: #444;
+            color: #333;
             cursor: not-allowed;
+            background: rgba(255,255,255,0.02);
+        }
+        .calendar-day.today {
+            border: 2px solid #c9a962;
+            color: #c9a962;
         }
         .time-slot {
             padding: 0.8rem;
@@ -190,33 +195,170 @@
             text-align: center;
             cursor: pointer;
             transition: all 0.3s;
+            border-radius: 8px;
+            font-size: 0.9rem;
         }
         .time-slot:hover:not(.disabled) {
-            border-color: #fff;
+            border-color: #c9a962;
+            background: rgba(201, 169, 98, 0.1);
         }
         .time-slot.selected {
-            background: #fff;
+            background: #c9a962;
             color: #000;
-            border-color: #fff;
+            border-color: #c9a962;
+            font-weight: 700;
         }
         .time-slot.disabled {
             opacity: 0.3;
             cursor: not-allowed;
             text-decoration: line-through;
+            background: rgba(255,0,0,0.05);
         }
-        .admin-hidden { display: none !important; }
+        .image-hover {
+            overflow: hidden;
+            position: relative;
+        }
+        .image-hover img {
+            transition: transform 0.5s ease;
+        }
+        .image-hover:hover img {
+            transform: scale(1.1);
+        }
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+        .image-hover:hover .image-overlay {
+            opacity: 1;
+        }
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #c9a962 0%, #f0e68c 50%, #c9a962 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .service-card {
+            background: linear-gradient(145deg, #111111, #0a0a0a);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            border-color: #c9a962;
+            box-shadow: 0 10px 30px rgba(201, 169, 98, 0.2);
+        }
+        
+        /* Admin Panel Styles */
+        .admin-grid {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+        }
+        @media (max-width: 768px) {
+            .admin-grid { grid-template-columns: 1fr; }
+        }
+        .time-block {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin: 0.25rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .time-block.active {
+            background: rgba(201, 169, 98, 0.2);
+            border-color: #c9a962;
+        }
+        .day-schedule {
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: rgba(255,255,255,0.02);
+        }
+        .day-schedule.disabled {
+            opacity: 0.5;
+            background: rgba(255,0,0,0.05);
+        }
+        .slot-manual {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            margin: 0.2rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .slot-manual.available {
+            background: rgba(0,255,0,0.1);
+            border-color: rgba(0,255,0,0.3);
+            color: #4ade80;
+        }
+        .slot-manual.blocked {
+            background: rgba(255,0,0,0.2);
+            border-color: rgba(255,0,0,0.4);
+            color: #f87171;
+            text-decoration: line-through;
+        }
+        .slot-manual:hover {
+            transform: scale(1.05);
+        }
+        .calendar-admin {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+        .calendar-admin-day {
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.8rem;
+            position: relative;
+        }
+        .calendar-admin-day:hover {
+            border-color: #c9a962;
+            background: rgba(201, 169, 98, 0.1);
+        }
+        .calendar-admin-day.has-bookings::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            width: 4px;
+            height: 4px;
+            background: #c9a962;
+            border-radius: 50%;
+        }
+        .calendar-admin-day.selected {
+            background: #c9a962;
+            color: #000;
+            font-weight: bold;
+        }
     </style>
-<base target="_blank">
 </head>
 <body class="bg-seven-black text-seven-white font-body overflow-x-hidden">
 
     <!-- Preloader -->
     <div id="preloader" class="fixed inset-0 bg-black z-50 flex items-center justify-center transition-opacity duration-500">
         <div class="text-center">
-            <div class="w-24 h-24 border-4 border-white border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <p class="font-seven text-2xl tracking-[0.3em] font-bold">SEVEN</p>
+            <div class="w-24 h-24 border-4 border-seven-accent border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <p class="font-seven text-2xl tracking-[0.3em] font-bold text-seven-accent">SEVEN</p>
             <p class="text-xs tracking-[0.5em] mt-2 text-gray-400">BARBERSHOP</p>
         </div>
     </div>
@@ -225,8 +367,8 @@
     <nav id="navbar" class="fixed w-full z-40 transition-all duration-300 py-4">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center gap-3 cursor-pointer" onclick="showSection('home')">
-                <div class="w-12 h-12 border-2 border-white rounded-full flex items-center justify-center bg-black">
-                    <span class="font-seven font-bold text-xl">7</span>
+                <div class="w-12 h-12 border-2 border-seven-accent rounded-full flex items-center justify-center bg-black">
+                    <span class="font-seven font-bold text-xl text-seven-accent">7</span>
                 </div>
                 <div class="hidden md:block">
                     <h1 class="font-seven text-xl font-bold tracking-wider">SEVEN</h1>
@@ -235,18 +377,18 @@
             </div>
             
             <div class="hidden md:flex items-center gap-8">
-                <a onclick="showSection('home')" class="hover:text-white text-gray-400 transition-colors text-sm tracking-wider cursor-pointer">INICIO</a>
-                <a onclick="showSection('servicios')" class="hover:text-white text-gray-400 transition-colors text-sm tracking-wider cursor-pointer">SERVICIOS</a>
-                <a onclick="showSection('booking')" class="hover:text-white text-gray-400 transition-colors text-sm tracking-wider cursor-pointer">RESERVAR</a>
-                <a onclick="showSection('galeria')" class="hover:text-white text-gray-400 transition-colors text-sm tracking-wider cursor-pointer">GALERÍA</a>
-                <a onclick="showSection('contacto')" class="hover:text-white text-gray-400 transition-colors text-sm tracking-wider cursor-pointer">CONTACTO</a>
+                <a onclick="showSection('home')" class="hover:text-seven-accent text-gray-400 transition-colors text-sm tracking-wider cursor-pointer">INICIO</a>
+                <a onclick="showSection('servicios')" class="hover:text-seven-accent text-gray-400 transition-colors text-sm tracking-wider cursor-pointer">SERVICIOS</a>
+                <a onclick="showSection('booking')" class="hover:text-seven-accent text-gray-400 transition-colors text-sm tracking-wider cursor-pointer">RESERVAR</a>
+                <a onclick="showSection('galeria')" class="hover:text-seven-accent text-gray-400 transition-colors text-sm tracking-wider cursor-pointer">GALERÍA</a>
+                <a onclick="showSection('contacto')" class="hover:text-seven-accent text-gray-400 transition-colors text-sm tracking-wider cursor-pointer">CONTACTO</a>
             </div>
 
             <div class="flex items-center gap-4">
-                <button onclick="showSection('admin')" class="text-gray-400 hover:text-white transition-colors text-sm border border-gray-700 px-4 py-2 rounded-full hover:border-white">
+                <button onclick="showSection('admin')" class="text-gray-400 hover:text-white transition-colors text-sm border border-gray-700 px-4 py-2 rounded-full hover:border-seven-accent">
                     <i class="fas fa-lock mr-2"></i>Admin
                 </button>
-                <button onclick="showSection('booking')" class="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all transform hover:scale-105 text-sm">
+                <button onclick="showSection('booking')" class="bg-seven-accent text-black px-6 py-2 rounded-full font-bold hover:bg-white transition-all transform hover:scale-105 text-sm">
                     AGENDAR
                 </button>
                 <button class="md:hidden text-2xl" onclick="toggleMobileMenu()">
@@ -259,12 +401,12 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="fixed inset-0 bg-black z-30 transform translate-x-full transition-transform duration-300 md:hidden pt-20">
         <div class="flex flex-col items-center gap-8 text-xl">
-            <a onclick="showSection('home'); toggleMobileMenu()" class="hover:text-white">INICIO</a>
-            <a onclick="showSection('servicios'); toggleMobileMenu()" class="hover:text-white">SERVICIOS</a>
-            <a onclick="showSection('booking'); toggleMobileMenu()" class="hover:text-white">RESERVAR</a>
-            <a onclick="showSection('galeria'); toggleMobileMenu()" class="hover:text-white">GALERÍA</a>
-            <a onclick="showSection('contacto'); toggleMobileMenu()" class="hover:text-white">CONTACTO</a>
-            <a onclick="showSection('admin'); toggleMobileMenu()" class="hover:text-white">ADMIN</a>
+            <a onclick="showSection('home'); toggleMobileMenu()" class="hover:text-seven-accent">INICIO</a>
+            <a onclick="showSection('servicios'); toggleMobileMenu()" class="hover:text-seven-accent">SERVICIOS</a>
+            <a onclick="showSection('booking'); toggleMobileMenu()" class="hover:text-seven-accent">RESERVAR</a>
+            <a onclick="showSection('galeria'); toggleMobileMenu()" class="hover:text-seven-accent">GALERÍA</a>
+            <a onclick="showSection('contacto'); toggleMobileMenu()" class="hover:text-seven-accent">CONTACTO</a>
+            <a onclick="showSection('admin'); toggleMobileMenu()" class="hover:text-seven-accent">ADMIN</a>
         </div>
     </div>
 
@@ -275,13 +417,10 @@
         <section id="home" class="section-active">
             <!-- Hero -->
             <div class="hero-bg flex flex-col items-center justify-center relative px-4 pt-32 pb-20">
-                <div class="absolute inset-0 opacity-10 pointer-events-none">
-                    <div class="absolute top-20 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
-                    <div class="absolute bottom-20 right-10 w-96 h-96 bg-gray-800 rounded-full blur-3xl"></div>
-                </div>
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-seven-black pointer-events-none"></div>
                 
-                <!-- LOGO CON ANIMACIÓN DE FLOTACIÓN -->
-                <div class="logo-seven mb-12 cursor-pointer" onclick="showSection('booking')">
+                <!-- LOGO -->
+                <div class="logo-seven mb-12 cursor-pointer relative z-10" onclick="showSection('booking')">
                     <div class="swirls"></div>
                     <span class="logo-text-top">SEVEN</span>
                     <div class="logo-decorations">
@@ -292,66 +431,114 @@
                     <span class="logo-text-bottom">BARBERSHOP</span>
                 </div>
 
-                <div class="text-center max-w-2xl mx-auto animate-fade-in-up relative z-10">
-                    <h2 class="font-seven text-5xl md:text-7xl font-bold mb-4 tracking-tight">SANTINO FORNES</h2>
-                    <p class="text-xl md:text-2xl text-gray-400 mb-8 font-light tracking-widest">BARBERO PROFESIONAL</p>
-                    <p class="text-gray-400 mb-12 text-lg leading-relaxed px-4">
-                        Especialista en cortes clásicos y modernos. 
-                        <br>Donde la tradición se encuentra con el estilo contemporáneo.
+                <div class="text-center max-w-3xl mx-auto animate-fade-in-up relative z-10 px-4">
+                    <h2 class="font-seven text-5xl md:text-7xl font-bold mb-4 tracking-tight">SANTINO <span class="gold-gradient">FORNES</span></h2>
+                    <p class="text-xl md:text-2xl text-gray-400 mb-8 font-light tracking-[0.3em] uppercase">Barbero Profesional</p>
+                    <p class="text-gray-400 mb-12 text-lg leading-relaxed max-w-2xl mx-auto">
+                        Especialista en cortes clásicos y modernos con una trayectoria dedicada a la excelencia. 
+                        Donde la tradición se encuentra con el estilo contemporáneo.
                     </p>
                     
                     <div class="flex flex-col md:flex-row gap-4 justify-center">
-                        <button onclick="showSection('booking')" class="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition-all transform hover:scale-105 flex items-center justify-center gap-2 shadow-lg">
+                        <button onclick="showSection('booking')" class="bg-seven-accent text-black px-8 py-4 rounded-full font-bold hover:bg-white transition-all transform hover:scale-105 flex items-center justify-center gap-2 shadow-lg shadow-seven-accent/20">
                             <i class="fas fa-calendar-alt"></i>
                             RESERVAR TURNO
                         </button>
-                        <a href="https://www.instagram.com/santinofornes7/" target="_blank" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2">
+                        <a href="https://www.instagram.com/santinofornes7/" target="_blank" class="border-2 border-white/30 text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2 backdrop-blur-sm">
                             <i class="fab fa-instagram"></i>
                             @santinofornes7
                         </a>
                     </div>
 
-                    <div class="mt-16 flex justify-center gap-8 text-sm text-gray-500 flex-wrap">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Ismael Orbelli 69</span>
+                    <div class="mt-16 flex justify-center gap-12 text-sm text-gray-500 flex-wrap">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-seven-accent"></i>
+                            </div>
+                            <div class="text-left">
+                                <p class="text-xs text-gray-400">Ubicación</p>
+                                <p class="text-white font-semibold">Ismael Orbelli 69</p>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-phone"></i>
-                            <span>2604-812928</span>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
+                                <i class="fas fa-phone text-seven-accent"></i>
+                            </div>
+                            <div class="text-left">
+                                <p class="text-xs text-gray-400">Teléfono</p>
+                                <p class="text-white font-semibold">2604-812928</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="absolute bottom-8 animate-bounce">
-                    <i class="fas fa-chevron-down text-2xl text-gray-600"></i>
+                    <i class="fas fa-chevron-down text-2xl text-seven-accent/50"></i>
                 </div>
             </div>
 
-            <!-- Stats - AÑOS CAMBIADOS A 3 -->
-            <div class="bg-seven-black py-20 border-t border-gray-900">
-                <div class="container mx-auto px-6">
+            <!-- Stats -->
+            <div class="bg-seven-black py-20 border-t border-white/5 relative overflow-hidden">
+                <div class="absolute inset-0 opacity-30">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.shutterstock.com/2bc55e4d0c21e5987d92b201c198cb1fafa0eeb3.jpg" class="w-full h-full object-cover opacity-20" alt="barber tools">
+                </div>
+                <div class="container mx-auto px-6 relative z-10">
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                        <div class="p-6 border border-gray-800 rounded-2xl hover:border-white transition-colors group">
-                            <i class="fas fa-cut text-4xl mb-4 text-gray-600 group-hover:text-white transition-colors"></i>
-                            <h3 class="font-seven text-3xl font-bold mb-2 counter" data-target="1500">0</h3>
-                            <p class="text-gray-400 text-sm">Cortes Realizados</p>
+                        <div class="p-6 border border-white/10 rounded-2xl hover:border-seven-accent/50 transition-all bg-black/40 backdrop-blur-sm">
+                            <i class="fas fa-cut text-4xl mb-4 text-seven-accent/80"></i>
+                            <h3 class="font-seven text-4xl font-bold mb-2 counter" data-target="1500">0</h3>
+                            <p class="text-gray-400 text-sm uppercase tracking-wider">Cortes Realizados</p>
                         </div>
-                        <div class="p-6 border border-gray-800 rounded-2xl hover:border-white transition-colors group">
-                            <i class="fas fa-star text-4xl mb-4 text-gray-600 group-hover:text-white transition-colors"></i>
-                            <h3 class="font-seven text-3xl font-bold mb-2 counter" data-target="5">0</h3>
-                            <p class="text-gray-400 text-sm">Estrellas Rating</p>
+                        <div class="p-6 border border-white/10 rounded-2xl hover:border-seven-accent/50 transition-all bg-black/40 backdrop-blur-sm">
+                            <i class="fas fa-star text-4xl mb-4 text-seven-accent/80"></i>
+                            <h3 class="font-seven text-4xl font-bold mb-2 counter" data-target="5">0</h3>
+                            <p class="text-gray-400 text-sm uppercase tracking-wider">Estrellas Rating</p>
                         </div>
-                        <div class="p-6 border border-gray-800 rounded-2xl hover:border-white transition-colors group">
-                            <i class="fas fa-calendar-check text-4xl mb-4 text-gray-600 group-hover:text-white transition-colors"></i>
-                            <h3 class="font-seven text-3xl font-bold mb-2 counter" data-target="365">0</h3>
-                            <p class="text-gray-400 text-sm">Días Disponibles</p>
+                        <div class="p-6 border border-white/10 rounded-2xl hover:border-seven-accent/50 transition-all bg-black/40 backdrop-blur-sm">
+                            <i class="fas fa-calendar-check text-4xl mb-4 text-seven-accent/80"></i>
+                            <h3 class="font-seven text-4xl font-bold mb-2 counter" data-target="365">0</h3>
+                            <p class="text-gray-400 text-sm uppercase tracking-wider">Días Disponibles</p>
                         </div>
-                        <div class="p-6 border border-gray-800 rounded-2xl hover:border-white transition-colors group">
-                            <i class="fas fa-trophy text-4xl mb-4 text-gray-600 group-hover:text-white transition-colors"></i>
-                            <!-- CAMBIADO A 3 AÑOS -->
-                            <h3 class="font-seven text-3xl font-bold mb-2 counter" data-target="3">0</h3>
-                            <p class="text-gray-400 text-sm">Años Experiencia</p>
+                        <div class="p-6 border border-white/10 rounded-2xl hover:border-seven-accent/50 transition-all bg-black/40 backdrop-blur-sm">
+                            <i class="fas fa-trophy text-4xl mb-4 text-seven-accent/80"></i>
+                            <h3 class="font-seven text-4xl font-bold mb-2 counter" data-target="3">0</h3>
+                            <p class="text-gray-400 text-sm uppercase tracking-wider">Años Experiencia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preview Gallery -->
+            <div class="bg-seven-dark py-24">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h3 class="font-seven text-3xl md:text-4xl font-bold mb-4">ESTILO Y <span class="gold-gradient">PRECISIÓN</span></h3>
+                        <p class="text-gray-400 mb-8">Conocé nuestro espacio y trabajos</p>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+                            <div class="image-hover rounded-2xl overflow-hidden aspect-[3/4] relative group">
+                                <img src="https://kimi-web-img.moonshot.cn/img/cdn.shopify.com/0622b868942b721772da0c56c2e3f77defe72385.webp" alt="Corte moderno texturizado" class="w-full h-full object-cover">
+                                <div class="image-overlay">
+                                    <p class="text-white font-semibold">Texturizado Moderno</p>
+                                </div>
+                            </div>
+                            <div class="image-hover rounded-2xl overflow-hidden aspect-[3/4] relative group">
+                                <img src="https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/41682dec910a47fe4c1e13c03913b469e6a65af4.jpg" alt="Interior barbería" class="w-full h-full object-cover">
+                                <div class="image-overlay">
+                                    <p class="text-white font-semibold">Nuestro Espacio</p>
+                                </div>
+                            </div>
+                            <div class="image-hover rounded-2xl overflow-hidden aspect-[3/4] relative group">
+                                <img src="https://kimi-web-img.moonshot.cn/img/cdn.shopify.com/e25136de694ad36e465ab09e4f4461c1be977455.webp" alt="Corte fade" class="w-full h-full object-cover">
+                                <div class="image-overlay">
+                                    <p class="text-white font-semibold">Fade Precision</p>
+                                </div>
+                            </div>
+                            <div class="image-hover rounded-2xl overflow-hidden aspect-[3/4] relative group">
+                                <img src="https://kimi-web-img.moonshot.cn/img/images.squarespace-cdn.com/f5e673a94f10c5c831adf022db21897a662b235a.JPG" alt="Barba y afeitado" class="w-full h-full object-cover">
+                                <div class="image-overlay">
+                                    <p class="text-white font-semibold">Arreglo de Barba</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -362,71 +549,87 @@
         <section id="servicios" class="hidden bg-seven-dark py-24">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
-                    <h2 class="font-seven text-4xl md:text-5xl font-bold mb-4">SERVICIOS</h2>
-                    <div class="w-24 h-1 bg-white mx-auto mb-4"></div>
-                    <p class="text-gray-400">Calidad y precisión en cada corte</p>
+                    <h2 class="font-seven text-4xl md:text-5xl font-bold mb-4">NUESTROS <span class="gold-gradient">SERVICIOS</span></h2>
+                    <div class="w-24 h-1 bg-seven-accent mx-auto mb-4"></div>
+                    <p class="text-gray-400 max-w-2xl mx-auto">Cada servicio está diseñado para brindarte la mejor experiencia de cuidado personal con productos premium y técnicas profesionales.</p>
                 </div>
 
-                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
-                    <div class="bg-seven-gray rounded-3xl overflow-hidden hover-lift border border-gray-800 group">
-                        <div class="h-48 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center relative overflow-hidden">
-                            <i class="fas fa-cut text-6xl text-gray-600 group-hover:text-white transition-all"></i>
+                <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
+                    <div class="service-card rounded-3xl overflow-hidden hover-lift group">
+                        <div class="h-56 relative overflow-hidden">
+                            <img src="https://kimi-web-img.moonshot.cn/img/cdn.shopify.com/0622b868942b721772da0c56c2e3f77defe72385.webp" alt="Corte de pelo" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-seven-dark to-transparent"></div>
+                            <div class="absolute bottom-4 left-4">
+                                <i class="fas fa-cut text-3xl text-seven-accent"></i>
+                            </div>
                         </div>
                         <div class="p-8">
                             <h3 class="font-seven text-2xl font-bold mb-2">Corte Clásico</h3>
-                            <p class="text-gray-400 mb-4">Incluye lavado y styling</p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-2xl font-bold">$3.000</span>
-                                <button onclick="selectService('Corte de Pelo')" class="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition-colors">
-                                    Reservar
+                            <p class="text-gray-400 mb-4">Incluye lavado, corte a máquina y/o tijera, styling con productos premium y masaje capilar.</p>
+                            <div class="flex justify-between items-center pt-4 border-t border-white/10">
+                                <span class="text-3xl font-bold text-seven-accent">$3.000</span>
+                                <button onclick="selectService('Corte de Pelo')" class="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-seven-accent transition-all">
+                                    Reservar <i class="fas fa-arrow-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-seven-gray rounded-3xl overflow-hidden hover-lift border border-gray-800 group">
-                        <div class="h-48 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center relative overflow-hidden">
-                            <i class="fas fa-air-freshener text-6xl text-gray-600 group-hover:text-white transition-all"></i>
+                    <div class="service-card rounded-3xl overflow-hidden hover-lift group">
+                        <div class="h-56 relative overflow-hidden">
+                            <img src="https://kimi-web-img.moonshot.cn/img/images.squarespace-cdn.com/f5e673a94f10c5c831adf022db21897a662b235a.JPG" alt="Barba" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-seven-dark to-transparent"></div>
+                            <div class="absolute bottom-4 left-4">
+                                <i class="fas fa-air-freshener text-3xl text-seven-accent"></i>
+                            </div>
                         </div>
                         <div class="p-8">
                             <h3 class="font-seven text-2xl font-bold mb-2">Arreglo de Barba</h3>
-                            <p class="text-gray-400 mb-4">Perfilado y cuidado</p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-2xl font-bold">$2.000</span>
-                                <button onclick="selectService('Arreglo de Barba')" class="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition-colors">
-                                    Reservar
+                            <p class="text-gray-400 mb-4">Perfilado con navaja, recorte de detalles, hidratación con toallas calientes y aceites esenciales.</p>
+                            <div class="flex justify-between items-center pt-4 border-t border-white/10">
+                                <span class="text-3xl font-bold text-seven-accent">$2.000</span>
+                                <button onclick="selectService('Arreglo de Barba')" class="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-seven-accent transition-all">
+                                    Reservar <i class="fas fa-arrow-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-seven-gray rounded-3xl overflow-hidden hover-lift border border-gray-800 group">
-                        <div class="h-48 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center relative overflow-hidden">
-                            <i class="fas fa-magic text-6xl text-gray-600 group-hover:text-white transition-all"></i>
+                    <div class="service-card rounded-3xl overflow-hidden hover-lift group">
+                        <div class="h-56 relative overflow-hidden">
+                            <img src="https://kimi-web-img.moonshot.cn/img/s3-media0.fl.yelpcdn.com/344afa5cfb62de662c0dfbfbac50590234def780.jpg" alt="Combo" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-seven-dark to-transparent"></div>
+                            <div class="absolute bottom-4 left-4">
+                                <i class="fas fa-magic text-3xl text-seven-accent"></i>
+                            </div>
                         </div>
                         <div class="p-8">
                             <h3 class="font-seven text-2xl font-bold mb-2">Combo Corte + Barba</h3>
-                            <p class="text-gray-400 mb-4">Pack completo de cuidado</p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-2xl font-bold">$4.500</span>
-                                <button onclick="selectService('Combo Corte + Barba')" class="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition-colors">
-                                    Reservar
+                            <p class="text-gray-400 mb-4">Pack completo de cuidado. Incluye ambos servicios con un 10% de descuento sobre el precio regular.</p>
+                            <div class="flex justify-between items-center pt-4 border-t border-white/10">
+                                <span class="text-3xl font-bold text-seven-accent">$4.500</span>
+                                <button onclick="selectService('Combo Corte + Barba')" class="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-seven-accent transition-all">
+                                    Reservar <i class="fas fa-arrow-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-seven-gray rounded-3xl overflow-hidden hover-lift border border-gray-800 group">
-                        <div class="h-48 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center relative overflow-hidden">
-                            <i class="fas fa-razor text-6xl text-gray-600 group-hover:text-white transition-all"></i>
+                    <div class="service-card rounded-3xl overflow-hidden hover-lift group">
+                        <div class="h-56 relative overflow-hidden">
+                            <img src="https://kimi-web-img.moonshot.cn/img/cdn.shopify.com/e25136de694ad36e465ab09e4f4461c1be977455.webp" alt="Afeitado" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-seven-dark to-transparent"></div>
+                            <div class="absolute bottom-4 left-4">
+                                <i class="fas fa-razor text-3xl text-seven-accent"></i>
+                            </div>
                         </div>
                         <div class="p-8">
                             <h3 class="font-seven text-2xl font-bold mb-2">Afeitado Clásico</h3>
-                            <p class="text-gray-400 mb-4">Con navaja y toallas calientes</p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-2xl font-bold">$2.500</span>
-                                <button onclick="selectService('Afeitado Clásico')" class="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition-colors">
-                                    Reservar
+                            <p class="text-gray-400 mb-4">Tradicional afeitado con navaja, preparación con cremas calientes, vapor y cuidado post-afeitado.</p>
+                            <div class="flex justify-between items-center pt-4 border-t border-white/10">
+                                <span class="text-3xl font-bold text-seven-accent">$2.500</span>
+                                <button onclick="selectService('Afeitado Clásico')" class="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-seven-accent transition-all">
+                                    Reservar <i class="fas fa-arrow-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
@@ -439,60 +642,81 @@
         <section id="booking" class="hidden bg-seven-black py-24 min-h-screen">
             <div class="container mx-auto px-6 max-w-6xl">
                 <div class="text-center mb-12">
-                    <h2 class="font-seven text-4xl md:text-5xl font-bold mb-4">RESERVAR TURNO</h2>
-                    <div class="w-24 h-1 bg-white mx-auto mb-4"></div>
+                    <h2 class="font-seven text-4xl md:text-5xl font-bold mb-4">RESERVAR <span class="gold-gradient">TURNO</span></h2>
+                    <div class="w-24 h-1 bg-seven-accent mx-auto mb-4"></div>
                     <p class="text-gray-400">Selecciona fecha, hora y completa tus datos</p>
                 </div>
 
-                <div class="grid lg:grid-cols-2 gap-8">
+                <div class="grid lg:grid-cols-5 gap-8">
                     <!-- Calendar -->
-                    <div class="bg-seven-gray p-8 rounded-3xl border border-gray-800">
-                        <h3 class="font-seven text-2xl font-bold mb-6 flex items-center gap-3">
-                            <i class="fas fa-calendar-alt"></i>
-                            Seleccionar Fecha
-                        </h3>
-                        <div id="calendar" class="grid grid-cols-7 gap-2 mb-6">
+                    <div class="lg:col-span-3 bg-seven-gray/50 backdrop-blur-sm p-8 rounded-3xl border border-white/10">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="font-seven text-2xl font-bold flex items-center gap-3">
+                                <i class="fas fa-calendar-alt text-seven-accent"></i>
+                                Seleccionar Fecha
+                            </h3>
+                            <div class="flex gap-2">
+                                <button onclick="changeMonth(-1)" class="w-10 h-10 rounded-full border border-white/20 hover:border-seven-accent hover:text-seven-accent transition-colors flex items-center justify-center">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <span id="currentMonth" class="flex items-center font-semibold min-w-[120px] justify-center"></span>
+                                <button onclick="changeMonth(1)" class="w-10 h-10 rounded-full border border-white/20 hover:border-seven-accent hover:text-seven-accent transition-colors flex items-center justify-center">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-7 gap-1 mb-2 text-center text-sm text-gray-500">
+                            <div>Dom</div><div>Lun</div><div>Mar</div><div>Mié</div><div>Jue</div><div>Vie</div><div>Sáb</div>
+                        </div>
+                        <div id="calendar" class="grid grid-cols-7 gap-1 mb-8">
                             <!-- Generated by JS -->
                         </div>
                         
-                        <h4 class="font-bold mb-4 text-lg">Horarios Disponibles</h4>
-                        <div id="timeSlots" class="grid grid-cols-3 gap-2">
-                            <p class="col-span-3 text-gray-500 text-center py-4">Selecciona una fecha primero</p>
+                        <h4 class="font-bold mb-4 text-lg flex items-center justify-between">
+                            Horarios Disponibles
+                            <span id="selectedDateDisplay" class="text-sm font-normal text-seven-accent"></span>
+                        </h4>
+                        <div id="timeSlots" class="grid grid-cols-4 gap-2">
+                            <p class="col-span-4 text-gray-500 text-center py-8 bg-black/20 rounded-xl border border-white/5">
+                                <i class="fas fa-calendar-day text-3xl mb-2 block opacity-30"></i>
+                                Selecciona una fecha primero
+                            </p>
                         </div>
                     </div>
 
                     <!-- Form -->
-                    <div class="bg-seven-gray p-8 rounded-3xl border border-gray-800">
+                    <div class="lg:col-span-2 bg-seven-gray/50 backdrop-blur-sm p-8 rounded-3xl border border-white/10 h-fit">
                         <h3 class="font-seven text-2xl font-bold mb-6 flex items-center gap-3">
-                            <i class="fas fa-user"></i>
+                            <i class="fas fa-user text-seven-accent"></i>
                             Tus Datos
                         </h3>
                         <form id="bookingForm" onsubmit="handleBooking(event)" class="space-y-4">
                             <div>
                                 <label class="block text-sm text-gray-400 mb-2">Nombre Completo</label>
                                 <input type="text" id="clientName" required 
-                                    class="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 focus:border-white focus:outline-none transition-colors"
+                                    class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:border-seven-accent focus:outline-none transition-colors"
                                     placeholder="Ej: Juan Pérez">
                             </div>
                             
                             <div>
                                 <label class="block text-sm text-gray-400 mb-2">Correo Electrónico</label>
                                 <input type="email" id="clientEmail" required 
-                                    class="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 focus:border-white focus:outline-none transition-colors"
+                                    class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:border-seven-accent focus:outline-none transition-colors"
                                     placeholder="ejemplo@email.com">
                             </div>
                             
                             <div>
                                 <label class="block text-sm text-gray-400 mb-2">Teléfono</label>
                                 <input type="tel" id="clientPhone" required 
-                                    class="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 focus:border-white focus:outline-none transition-colors"
+                                    class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:border-seven-accent focus:outline-none transition-colors"
                                     placeholder="2604XXXXXX">
                             </div>
 
                             <div>
                                 <label class="block text-sm text-gray-400 mb-2">Servicio</label>
                                 <select id="service" required 
-                                    class="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 focus:border-white focus:outline-none transition-colors text-white">
+                                    class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:border-seven-accent focus:outline-none transition-colors text-white">
                                     <option value="">Selecciona un servicio</option>
                                     <option value="Corte de Pelo">Corte de Pelo - $3.000</option>
                                     <option value="Arreglo de Barba">Arreglo de Barba - $2.000</option>
@@ -503,7 +727,7 @@
 
                             <div class="pt-4">
                                 <button type="submit" id="submitBtn" disabled
-                                    class="w-full bg-white text-black py-4 rounded-xl font-bold hover:bg-gray-200 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                                    class="w-full bg-seven-accent text-black py-4 rounded-xl font-bold hover:bg-white transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg shadow-seven-accent/20">
                                     <i class="fas fa-check-circle"></i>
                                     CONFIRMAR RESERVA
                                 </button>
@@ -522,30 +746,56 @@
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                     <h2 class="font-seven text-4xl md:text-5xl font-bold mb-4">GALERÍA</h2>
-                    <div class="w-24 h-1 bg-white mx-auto mb-4"></div>
+                    <div class="w-24 h-1 bg-seven-accent mx-auto mb-4"></div>
                     <p class="text-gray-400 mb-8">Trabajos de @santinofornes7</p>
-                    <a href="https://www.instagram.com/santinofornes7/" target="_blank" 
-                        class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white px-8 py-3 rounded-full font-bold hover:opacity-90 transition-opacity">
-                        <i class="fab fa-instagram text-xl"></i>
-                        Ver Instagram
-                    </a>
                 </div>
 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto opacity-60">
-                    <div class="aspect-square bg-gray-800 rounded-2xl flex items-center justify-center border border-gray-700">
-                        <i class="fas fa-image text-4xl text-gray-600"></i>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
+                    <div class="image-hover rounded-2xl overflow-hidden aspect-square relative group">
+                        <img src="https://kimi-web-img.moonshot.cn/img/cdn.shopify.com/0622b868942b721772da0c56c2e3f77defe72385.webp" alt="Corte 1" class="w-full h-full object-cover">
+                        <div class="image-overlay">
+                            <p class="text-sm font-semibold">Texturizado Crop</p>
+                        </div>
                     </div>
-                    <div class="aspect-square bg-gray-800 rounded-2xl flex items-center justify-center border border-gray-700">
-                        <i class="fas fa-image text-4xl text-gray-600"></i>
+                    <div class="image-hover rounded-2xl overflow-hidden aspect-square relative group md:col-span-2">
+                        <img src="https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/41682dec910a47fe4c1e13c03913b469e6a65af4.jpg" alt="Interior 1" class="w-full h-full object-cover">
+                        <div class="image-overlay">
+                            <p class="text-sm font-semibold">Seven Barbershop Interior</p>
+                        </div>
                     </div>
-                    <div class="aspect-square bg-gray-800 rounded-2xl flex items-center justify-center border border-gray-700">
-                        <i class="fas fa-image text-4xl text-gray-600"></i>
+                    <div class="image-hover rounded-2xl overflow-hidden aspect-square relative group md:col-span-2">
+                        <img src="https://kimi-web-img.moonshot.cn/img/cdn.shopify.com/e25136de694ad36e465ab09e4f4461c1be977455.webp" alt="Corte 2" class="w-full h-full object-cover">
+                        <div class="image-overlay">
+                            <p class="text-sm font-semibold">Mid Fade Texturizado</p>
+                        </div>
                     </div>
-                    <div class="aspect-square bg-gray-800 rounded-2xl flex items-center justify-center border border-gray-700">
-                        <i class="fas fa-image text-4xl text-gray-600"></i>
+                    <div class="image-hover rounded-2xl overflow-hidden aspect-square relative group">
+                        <img src="https://kimi-web-img.moonshot.cn/img/images.squarespace-cdn.com/f5e673a94f10c5c831adf022db21897a662b235a.JPG" alt="Barba 1" class="w-full h-full object-cover">
+                        <div class="image-overlay">
+                            <p class="text-sm font-semibold">Beard Grooming</p>
+                        </div>
+                    </div>
+                    <div class="image-hover rounded-2xl overflow-hidden aspect-square relative group">
+                        <img src="https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/1bc540f63e330ee5b02a5772b6656d417b20dfc3.jpg" alt="Interior 2" class="w-full h-full object-cover">
+                        <div class="image-overlay">
+                            <p class="text-sm font-semibold">Espacio Premium</p>
+                        </div>
+                    </div>
+                    <div class="image-hover rounded-2xl overflow-hidden aspect-square relative group md:col-span-2">
+                        <img src="https://kimi-web-img.moonshot.cn/img/s3-media0.fl.yelpcdn.com/344afa5cfb62de662c0dfbfbac50590234def780.jpg" alt="Servicio completo" class="w-full h-full object-cover">
+                        <div class="image-overlay">
+                            <p class="text-sm font-semibold">Full Service</p>
+                        </div>
                     </div>
                 </div>
-                <p class="text-center text-gray-500 mt-8">Conecta tu Instagram para mostrar tus trabajos aquí</p>
+                
+                <div class="text-center mt-12">
+                    <a href="https://www.instagram.com/santinofornes7/" target="_blank" 
+                        class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white px-8 py-4 rounded-full font-bold hover:opacity-90 transition-opacity shadow-lg">
+                        <i class="fab fa-instagram text-xl"></i>
+                        Ver más en Instagram
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -554,48 +804,48 @@
             <div class="container mx-auto px-6 max-w-4xl">
                 <div class="text-center mb-12">
                     <h2 class="font-seven text-4xl md:text-5xl font-bold mb-4">CONTACTO</h2>
-                    <div class="w-24 h-1 bg-white mx-auto mb-4"></div>
+                    <div class="w-24 h-1 bg-seven-accent mx-auto mb-4"></div>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-full bg-seven-gray flex items-center justify-center flex-shrink-0 border border-gray-700">
-                                <i class="fas fa-map-marker-alt text-white"></i>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-seven-accent/50 transition-colors">
+                            <div class="w-14 h-14 rounded-full bg-seven-accent/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-seven-accent text-xl"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold mb-1">Dirección</h4>
+                                <h4 class="font-bold mb-1 text-lg">Dirección</h4>
                                 <p class="text-gray-400">Ismael Orbelli 69</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-full bg-seven-gray flex items-center justify-center flex-shrink-0 border border-gray-700">
-                                <i class="fas fa-phone text-white"></i>
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-seven-accent/50 transition-colors">
+                            <div class="w-14 h-14 rounded-full bg-seven-accent/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-seven-accent text-xl"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold mb-1">Teléfono</h4>
+                                <h4 class="font-bold mb-1 text-lg">Teléfono</h4>
                                 <p class="text-gray-400">2604-812928</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-full bg-seven-gray flex items-center justify-center flex-shrink-0 border border-gray-700">
-                                <i class="fas fa-envelope text-white"></i>
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-seven-accent/50 transition-colors">
+                            <div class="w-14 h-14 rounded-full bg-seven-accent/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-seven-accent text-xl"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold mb-1">Email</h4>
+                                <h4 class="font-bold mb-1 text-lg">Email</h4>
                                 <p class="text-gray-400">ruizsantino28@gmail.com</p>
                             </div>
                         </div>
 
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-full bg-seven-gray flex items-center justify-center flex-shrink-0 border border-gray-700">
-                                <i class="fab fa-instagram text-white"></i>
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-seven-accent/50 transition-colors">
+                            <div class="w-14 h-14 rounded-full bg-seven-accent/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fab fa-instagram text-seven-accent text-xl"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold mb-1">Instagram</h4>
-                                <a href="https://www.instagram.com/santinofornes7/" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                                <h4 class="font-bold mb-1 text-lg">Instagram</h4>
+                                <a href="https://www.instagram.com/santinofornes7/" target="_blank" class="text-gray-400 hover:text-seven-accent transition-colors">
                                     @santinofornes7
                                 </a>
                             </div>
@@ -610,20 +860,36 @@
                         </div>
                     </div>
 
-                    <div class="bg-seven-gray p-8 rounded-3xl border border-gray-800">
-                        <h3 class="font-seven text-xl font-bold mb-6">Horarios</h3>
-                        <div class="space-y-3 text-gray-400">
-                            <div class="flex justify-between border-b border-gray-700 pb-2">
-                                <span>Lunes a Viernes</span>
-                                <span class="text-white">09:00 - 18:00</span>
+                    <div class="bg-seven-gray/50 backdrop-blur-sm p-8 rounded-3xl border border-white/10">
+                        <h3 class="font-seven text-2xl font-bold mb-6">Horarios de Atención</h3>
+                        <div class="space-y-4 text-gray-400">
+                            <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                                <span class="flex items-center gap-2"><i class="far fa-clock text-seven-accent"></i> Lunes</span>
+                                <span class="text-white font-semibold" id="hours-mon">09:00 - 18:00</span>
                             </div>
-                            <div class="flex justify-between border-b border-gray-700 pb-2">
-                                <span>Sábados</span>
-                                <span class="text-white">09:00 - 13:00</span>
+                            <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                                <span class="flex items-center gap-2"><i class="far fa-clock text-seven-accent"></i> Martes</span>
+                                <span class="text-white font-semibold" id="hours-tue">09:00 - 18:00</span>
                             </div>
-                            <div class="flex justify-between">
-                                <span>Domingos</span>
-                                <span class="text-gray-600">Cerrado</span>
+                            <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                                <span class="flex items-center gap-2"><i class="far fa-clock text-seven-accent"></i> Miércoles</span>
+                                <span class="text-white font-semibold" id="hours-wed">09:00 - 18:00</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                                <span class="flex items-center gap-2"><i class="far fa-clock text-seven-accent"></i> Jueves</span>
+                                <span class="text-white font-semibold" id="hours-thu">09:00 - 18:00</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                                <span class="flex items-center gap-2"><i class="far fa-clock text-seven-accent"></i> Viernes</span>
+                                <span class="text-white font-semibold" id="hours-fri">09:00 - 18:00</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                                <span class="flex items-center gap-2"><i class="far fa-clock text-seven-accent"></i> Sábados</span>
+                                <span class="text-white font-semibold" id="hours-sat">09:00 - 13:00</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="flex items-center gap-2"><i class="far fa-clock text-red-500"></i> Domingos</span>
+                                <span class="text-red-400 font-semibold" id="hours-sun">Cerrado</span>
                             </div>
                         </div>
                     </div>
@@ -631,19 +897,19 @@
             </div>
         </section>
 
-        <!-- ADMIN SECTION -->
+        <!-- ADMIN SECTION - COMPLETAMENTE REDISEÑADO -->
         <section id="admin" class="hidden bg-seven-black py-24 min-h-screen">
-            <div class="container mx-auto px-6 max-w-5xl">
+            <div class="container mx-auto px-6 max-w-7xl">
                 <div class="text-center mb-12">
-                    <h2 class="font-seven text-4xl md:text-5xl font-bold mb-4">PANEL DE ADMINISTRACIÓN</h2>
-                    <div class="w-24 h-1 bg-white mx-auto mb-4"></div>
+                    <h2 class="font-seven text-4xl md:text-5xl font-bold mb-4">PANEL DE <span class="gold-gradient">ADMINISTRACIÓN</span></h2>
+                    <div class="w-24 h-1 bg-seven-accent mx-auto mb-4"></div>
                 </div>
 
                 <!-- Login Form -->
-                <div id="loginForm" class="max-w-md mx-auto bg-seven-gray p-8 rounded-3xl border border-gray-800">
+                <div id="loginForm" class="max-w-md mx-auto bg-seven-gray/50 backdrop-blur-sm p-8 rounded-3xl border border-white/10">
                     <div class="text-center mb-8">
-                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-lock text-black text-2xl"></i>
+                        <div class="w-20 h-20 bg-seven-accent rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-seven-accent/30">
+                            <i class="fas fa-lock text-black text-3xl"></i>
                         </div>
                         <h3 class="font-seven text-2xl font-bold">Acceso Administrador</h3>
                         <p class="text-gray-400 text-sm mt-2">Seven Barbershop</p>
@@ -653,16 +919,16 @@
                         <div>
                             <label class="block text-sm text-gray-400 mb-2">Usuario</label>
                             <input type="email" id="adminEmail" required 
-                                class="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 focus:border-white focus:outline-none"
+                                class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:border-seven-accent focus:outline-none"
                                 placeholder="ruizsantino28@gmail.com">
                         </div>
                         <div>
                             <label class="block text-sm text-gray-400 mb-2">Contraseña</label>
                             <input type="password" id="adminPass" required 
-                                class="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 focus:border-white focus:outline-none"
+                                class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:border-seven-accent focus:outline-none"
                                 placeholder="••••••••">
                         </div>
-                        <button type="submit" class="w-full bg-white text-black py-4 rounded-xl font-bold hover:bg-gray-200 transition-colors">
+                        <button type="submit" class="w-full bg-seven-accent text-black py-4 rounded-xl font-bold hover:bg-white transition-colors shadow-lg shadow-seven-accent/20">
                             INGRESAR
                         </button>
                     </form>
@@ -670,83 +936,191 @@
 
                 <!-- Admin Dashboard -->
                 <div id="adminDashboard" class="hidden space-y-8">
-                    <!-- Stats -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="bg-seven-gray p-6 rounded-2xl border border-gray-800">
+                    <!-- Stats Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <div class="bg-seven-gray/50 p-6 rounded-2xl border border-white/10">
                             <h4 class="text-gray-400 text-sm mb-2">Turnos Hoy</h4>
-                            <p class="text-3xl font-seven font-bold" id="statToday">0</p>
+                            <p class="text-4xl font-seven font-bold text-seven-accent" id="statToday">0</p>
                         </div>
-                        <div class="bg-seven-gray p-6 rounded-2xl border border-gray-800">
+                        <div class="bg-seven-gray/50 p-6 rounded-2xl border border-white/10">
+                            <h4 class="text-gray-400 text-sm mb-2">Esta Semana</h4>
+                            <p class="text-4xl font-seven font-bold" id="statWeek">0</p>
+                        </div>
+                        <div class="bg-seven-gray/50 p-6 rounded-2xl border border-white/10">
                             <h4 class="text-gray-400 text-sm mb-2">Pendientes</h4>
-                            <p class="text-3xl font-seven font-bold text-yellow-500" id="statPending">0</p>
+                            <p class="text-4xl font-seven font-bold text-yellow-500" id="statPending">0</p>
                         </div>
-                        <div class="bg-seven-gray p-6 rounded-2xl border border-gray-800">
+                        <div class="bg-seven-gray/50 p-6 rounded-2xl border border-white/10">
                             <h4 class="text-gray-400 text-sm mb-2">Total Reservas</h4>
-                            <p class="text-3xl font-seven font-bold" id="statTotal">0</p>
+                            <p class="text-4xl font-seven font-bold" id="statTotal">0</p>
                         </div>
                     </div>
 
-                    <!-- Availability Config -->
-                    <div class="bg-seven-gray p-8 rounded-3xl border border-gray-800">
-                        <h3 class="font-seven text-2xl font-bold mb-6">Configurar Disponibilidad</h3>
-                        
-                        <div class="mb-6">
-                            <label class="block text-sm text-gray-400 mb-3">Días disponibles</label>
-                            <div class="flex flex-wrap gap-2" id="daysSelector">
-                                <button type="button" data-day="1" class="day-btn px-4 py-2 rounded-full border border-gray-600 text-sm hover:border-white transition-colors">Lun</button>
-                                <button type="button" data-day="2" class="day-btn px-4 py-2 rounded-full border border-gray-600 text-sm hover:border-white transition-colors">Mar</button>
-                                <button type="button" data-day="3" class="day-btn px-4 py-2 rounded-full border border-gray-600 text-sm hover:border-white transition-colors">Mié</button>
-                                <button type="button" data-day="4" class="day-btn px-4 py-2 rounded-full border border-gray-600 text-sm hover:border-white transition-colors">Jue</button>
-                                <button type="button" data-day="5" class="day-btn px-4 py-2 rounded-full border border-gray-600 text-sm hover:border-white transition-colors">Vie</button>
-                                <button type="button" data-day="6" class="day-btn px-4 py-2 rounded-full border border-gray-600 text-sm hover:border-white transition-colors">Sáb</button>
-                                <button type="button" data-day="0" class="day-btn px-4 py-2 rounded-full border border-gray-600 text-sm hover:border-white transition-colors">Dom</button>
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-4 mb-6">
-                            <div>
-                                <label class="block text-sm text-gray-400 mb-2">Horario inicio</label>
-                                <select id="startTime" class="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 focus:border-white focus:outline-none">
-                                    <option value="09:00">09:00</option>
-                                    <option value="10:00">10:00</option>
-                                    <option value="11:00">11:00</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm text-gray-400 mb-2">Horario fin</label>
-                                <select id="endTime" class="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 focus:border-white focus:outline-none">
-                                    <option value="18:00">18:00</option>
-                                    <option value="19:00">19:00</option>
-                                    <option value="20:00">20:00</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <button onclick="saveAvailability()" class="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-gray-200 transition-colors">
-                            Guardar Configuración
+                    <!-- Tabs Navigation -->
+                    <div class="flex flex-wrap gap-2 border-b border-white/10 pb-4">
+                        <button onclick="showAdminTab('schedule')" class="admin-tab active px-6 py-3 rounded-full border border-seven-accent bg-seven-accent text-black font-semibold transition-all" data-tab="schedule">
+                            <i class="fas fa-clock mr-2"></i>Horarios
+                        </button>
+                        <button onclick="showAdminTab('manual')" class="admin-tab px-6 py-3 rounded-full border border-white/20 hover:border-seven-accent transition-all" data-tab="manual">
+                            <i class="fas fa-hand-pointer mr-2"></i>Bloqueo Manual
+                        </button>
+                        <button onclick="showAdminTab('holidays')" class="admin-tab px-6 py-3 rounded-full border border-white/20 hover:border-seven-accent transition-all" data-tab="holidays">
+                            <i class="fas fa-calendar-times mr-2"></i>Días Especiales
+                        </button>
+                        <button onclick="showAdminTab('appointments')" class="admin-tab px-6 py-3 rounded-full border border-white/20 hover:border-seven-accent transition-all" data-tab="appointments">
+                            <i class="fas fa-list mr-2"></i>Turnos
+                        </button>
+                        <button onclick="showAdminTab('settings')" class="admin-tab px-6 py-3 rounded-full border border-white/20 hover:border-seven-accent transition-all" data-tab="settings">
+                            <i class="fas fa-cog mr-2"></i>Config
                         </button>
                     </div>
 
-                    <!-- Appointments List -->
-                    <div class="bg-seven-gray p-8 rounded-3xl border border-gray-800">
-                        <div class="flex justify-between items-center mb-6">
-                            <h3 class="font-seven text-2xl font-bold">Turnos Reservados</h3>
-                            <button onclick="logoutAdmin()" class="text-red-500 hover:text-red-400 text-sm border border-red-500 px-4 py-2 rounded-full">
-                                Cerrar Sesión
-                            </button>
-                        </div>
-                        
-                        <div id="appointmentsList" class="space-y-4">
-                            <p class="text-gray-500 text-center py-8">No hay turnos reservados</p>
+                    <!-- Tab Content: Schedule Config -->
+                    <div id="tab-schedule" class="admin-tab-content">
+                        <div class="bg-seven-gray/30 p-8 rounded-3xl border border-white/10">
+                            <h3 class="font-seven text-2xl font-bold mb-6">Configuración de Horarios por Día</h3>
+                            <p class="text-gray-400 mb-6 text-sm">Activá los días que trabajás y configurá hasta 2 franjas horarias por día (ej: mañana y tarde).</p>
+                            
+                            <div id="scheduleContainer" class="space-y-4">
+                                <!-- Generated by JS -->
+                            </div>
+
+                            <div class="mt-8 flex justify-end">
+                                <button onclick="saveScheduleConfig()" class="bg-seven-accent text-black px-8 py-3 rounded-full font-bold hover:bg-white transition-all shadow-lg shadow-seven-accent/20">
+                                    <i class="fas fa-save mr-2"></i>Guardar Configuración
+                                </button>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Tab Content: Manual Blocking -->
+                    <div id="tab-manual" class="admin-tab-content hidden">
+                        <div class="bg-seven-gray/30 p-8 rounded-3xl border border-white/10">
+                            <h3 class="font-seven text-2xl font-bold mb-2">Bloqueo Manual de Horarios</h3>
+                            <p class="text-gray-400 mb-6 text-sm">Bloqueá o liberá horarios específicos haciendo clic. Útil para descansos, horarios de almuerzo o turnos particulares.</p>
+                            
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div>
+                                    <label class="block text-sm text-gray-400 mb-3">Seleccionar Fecha</label>
+                                    <input type="date" id="manualDate" onchange="loadManualSlots()" 
+                                        class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:border-seven-accent focus:outline-none text-white">
+                                </div>
+                                <div class="flex items-end">
+                                    <div class="flex gap-4 text-sm">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-4 h-4 rounded bg-green-500/20 border border-green-500"></div>
+                                            <span class="text-gray-400">Disponible</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-4 h-4 rounded bg-red-500/20 border border-red-500 line-through"></div>
+                                            <span class="text-gray-400">Bloqueado</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-4 h-4 rounded bg-seven-accent"></div>
+                                            <span class="text-gray-400">Reservado</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="manualSlotsContainer" class="mt-8 p-6 bg-black/30 rounded-2xl border border-white/5 min-h-[200px]">
+                                <p class="text-gray-500 text-center">Seleccioná una fecha para ver los horarios</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content: Holidays -->
+                    <div id="tab-holidays" class="admin-tab-content hidden">
+                        <div class="bg-seven-gray/30 p-8 rounded-3xl border border-white/10">
+                            <h3 class="font-seven text-2xl font-bold mb-6">Días No Laborables</h3>
+                            
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div>
+                                    <label class="block text-sm text-gray-400 mb-3">Agregar día libre o feriado</label>
+                                    <div class="flex gap-2">
+                                        <input type="date" id="holidayDate" 
+                                            class="flex-1 bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:border-seven-accent focus:outline-none text-white">
+                                        <input type="text" id="holidayReason" placeholder="Motivo (opcional)"
+                                            class="flex-1 bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:border-seven-accent focus:outline-none text-white">
+                                        <button onclick="addHoliday()" class="bg-seven-accent text-black px-6 py-3 rounded-xl font-bold hover:bg-white transition-all">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="holidaysList" class="mt-8 space-y-2">
+                                <!-- Generated by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content: Appointments List -->
+                    <div id="tab-appointments" class="admin-tab-content hidden">
+                        <div class="bg-seven-gray/30 p-8 rounded-3xl border border-white/10">
+                            <div class="flex justify-between items-center mb-6 flex-wrap gap-4">
+                                <h3 class="font-seven text-2xl font-bold">Gestión de Turnos</h3>
+                                <div class="flex gap-2">
+                                    <select id="filterStatus" onchange="renderAppointments()" class="bg-black/50 border border-white/10 rounded-lg px-4 py-2 text-sm focus:border-seven-accent focus:outline-none">
+                                        <option value="all">Todos</option>
+                                        <option value="pending">Pendientes</option>
+                                        <option value="confirmed">Confirmados</option>
+                                    </select>
+                                    <button onclick="logoutAdmin()" class="text-red-500 hover:text-red-400 text-sm border border-red-500/30 px-4 py-2 rounded-lg hover:bg-red-500/10 transition-all">
+                                        <i class="fas fa-sign-out-alt mr-2"></i>Cerrar Sesión
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div id="appointmentsList" class="space-y-4 max-h-[600px] overflow-y-auto pr-2 scrollbar-hide">
+                                <!-- Generated by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content: Settings -->
+                    <div id="tab-settings" class="admin-tab-content hidden">
+                        <div class="bg-seven-gray/30 p-8 rounded-3xl border border-white/10">
+                            <h3 class="font-seven text-2xl font-bold mb-6">Configuración Avanzada</h3>
+                            
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div>
+                                    <label class="block text-sm text-gray-400 mb-3">Duración del Turno (minutos)</label>
+                                    <select id="slotDuration" onchange="saveSettings()" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:border-seven-accent focus:outline-none text-white">
+                                        <option value="30">30 minutos</option>
+                                        <option value="45">45 minutos</option>
+                                        <option value="60">1 hora</option>
+                                    </select>
+                                    <p class="text-xs text-gray-500 mt-2">Determina el espacio entre cada turno disponible</p>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm text-gray-400 mb-3">Antelación mínima (horas)</label>
+                                    <select id="minAdvance" onchange="saveSettings()" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:border-seven-accent focus:outline-none text-white">
+                                        <option value="0">Sin restricción</option>
+                                        <option value="1">1 hora</option>
+                                        <option value="2">2 horas</option>
+                                        <option value="24">24 horas</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 pt-8 border-t border-white/10">
+                                <h4 class="font-bold mb-4 text-red-400">Zona de Peligro</h4>
+                                <button onclick="clearAllData()" class="bg-red-500/10 border border-red-500 text-red-500 px-6 py-3 rounded-lg hover:bg-red-500 hover:text-white transition-all text-sm">
+                                    <i class="fas fa-trash-alt mr-2"></i>Borrar todos los datos
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-4 right-4 bg-white text-black px-6 py-4 rounded-xl shadow-2xl transform translate-y-20 opacity-0 transition-all duration-300 z-50 font-bold flex items-center gap-3 border-l-4 border-green-500">
+    <div id="toast" class="fixed bottom-4 right-4 bg-seven-gray border border-white/20 text-white px-6 py-4 rounded-xl shadow-2xl transform translate-y-20 opacity-0 transition-all duration-300 z-50 font-bold flex items-center gap-3 border-l-4 border-green-500">
         <i class="fas fa-check-circle text-green-500"></i>
         <span id="toastMsg">Mensaje</span>
     </div>
@@ -758,15 +1132,29 @@
             password: 'Diamante01'
         };
 
-        let availability = {
-            days: [1, 2, 3, 4, 5], // Mon-Fri default
-            startTime: '09:00',
-            endTime: '18:00'
+        // Estructura de configuración avanzada
+        let scheduleConfig = {
+            monday: { active: true, slots: [{start: '09:00', end: '13:00'}, {start: '17:00', end: '21:00'}] },
+            tuesday: { active: true, slots: [{start: '09:00', end: '13:00'}, {start: '17:00', end: '21:00'}] },
+            wednesday: { active: true, slots: [{start: '09:00', end: '13:00'}, {start: '17:00', end: '21:00'}] },
+            thursday: { active: true, slots: [{start: '09:00', end: '13:00'}, {start: '17:00', end: '21:00'}] },
+            friday: { active: true, slots: [{start: '09:00', end: '13:00'}, {start: '17:00', end: '21:00'}] },
+            saturday: { active: true, slots: [{start: '09:00', end: '13:00'}] },
+            sunday: { active: false, slots: [] }
         };
+
+        let settings = {
+            slotDuration: 60, // minutos
+            minAdvance: 0 // horas
+        };
+
+        let holidays = []; // Fechas bloqueadas específicas
+        let manualBlocks = {}; // { '2026-03-25': ['10:00', '11:00'] }
 
         let selectedDate = null;
         let selectedTime = null;
         let isAdmin = false;
+        let currentMonth = new Date();
 
         // Init
         document.addEventListener('DOMContentLoaded', () => {
@@ -777,8 +1165,8 @@
 
             loadData();
             initCalendar();
-            initAvailabilityUI();
             initCounters();
+            updateContactHours();
             
             // Check session
             if (localStorage.getItem('sevenAdmin') === 'true') {
@@ -797,16 +1185,31 @@
         });
 
         function loadData() {
-            const saved = localStorage.getItem('sevenAvailability');
-            if (saved) availability = JSON.parse(saved);
+            const savedSchedule = localStorage.getItem('sevenSchedule');
+            if (savedSchedule) scheduleConfig = JSON.parse(savedSchedule);
+            
+            const savedSettings = localStorage.getItem('sevenSettings');
+            if (savedSettings) settings = JSON.parse(savedSettings);
+            
+            const savedHolidays = localStorage.getItem('sevenHolidays');
+            if (savedHolidays) holidays = JSON.parse(savedHolidays);
+            
+            const savedManual = localStorage.getItem('sevenManualBlocks');
+            if (savedManual) manualBlocks = JSON.parse(savedManual);
+
+            // Aplicar settings a los selects del admin
+            if (document.getElementById('slotDuration')) {
+                document.getElementById('slotDuration').value = settings.slotDuration;
+                document.getElementById('minAdvance').value = settings.minAdvance;
+            }
         }
 
         function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('main > section').forEach(s => s.classList.add('hidden'));
-            document.querySelectorAll('main > section').forEach(s => s.classList.remove('section-active'));
+            document.querySelectorAll('main > section').forEach(s => {
+                s.classList.add('hidden');
+                s.classList.remove('section-active');
+            });
             
-            // Show target
             const target = document.getElementById(sectionId);
             target.classList.remove('hidden');
             target.classList.add('section-active');
@@ -826,20 +1229,31 @@
             menu.classList.toggle('translate-x-full');
         }
 
-        // Calendar Logic
+        // Calendar Logic - Mejorado con navegación por meses
         function initCalendar() {
+            renderCalendar();
+        }
+
+        function changeMonth(delta) {
+            currentMonth.setMonth(currentMonth.getMonth() + delta);
+            renderCalendar();
+        }
+
+        function renderCalendar() {
             const calendar = document.getElementById('calendar');
-            const today = new Date();
-            const month = today.getMonth();
-            const year = today.getFullYear();
+            const monthLabel = document.getElementById('currentMonth');
             
-            // Headers
-            const days = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
-            calendar.innerHTML = days.map(d => `<div class="text-center text-xs text-gray-500 py-2">${d}</div>`).join('');
+            const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+            monthLabel.textContent = `${monthNames[currentMonth.getMonth()]} ${currentMonth.getFullYear()}`;
             
-            // Days
+            calendar.innerHTML = '';
+            
+            const year = currentMonth.getFullYear();
+            const month = currentMonth.getMonth();
+            
             const firstDay = new Date(year, month, 1).getDay();
             const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const today = new Date();
             
             // Empty slots
             for (let i = 0; i < firstDay; i++) {
@@ -853,6 +1267,11 @@
                 dayDiv.className = 'calendar-day';
                 dayDiv.textContent = i;
                 
+                // Marcar hoy
+                if (date.toDateString() === today.toDateString()) {
+                    dayDiv.classList.add('today');
+                }
+                
                 if (!isAvailable(date)) {
                     dayDiv.classList.add('disabled');
                 } else {
@@ -864,16 +1283,30 @@
         }
 
         function isAvailable(date) {
-            const day = date.getDay();
+            const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            const dayConfig = scheduleConfig[dayNames[date.getDay()]];
+            
+            if (!dayConfig || !dayConfig.active) return false;
+            
+            // Verificar si es feriado
+            const dateStr = date.toISOString().split('T')[0];
+            if (holidays.find(h => h.date === dateStr)) return false;
+            
+            // Verificar antelación mínima
+            const now = new Date();
+            const diffHours = (date - now) / (1000 * 60 * 60);
+            if (diffHours < settings.minAdvance) return false;
+            
             const today = new Date();
             today.setHours(0,0,0,0);
-            return availability.days.includes(day) && date >= today;
+            return date >= today;
         }
 
         function selectDate(date, el) {
             document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
             el.classList.add('selected');
             selectedDate = date;
+            document.getElementById('selectedDateDisplay').textContent = date.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
             renderTimeSlots(date);
         }
 
@@ -883,27 +1316,63 @@
             const dateStr = date.toISOString().split('T')[0];
             const booked = appointments.filter(a => a.date === dateStr).map(a => a.time);
             
-            const start = parseInt(availability.startTime);
-            const end = parseInt(availability.endTime);
+            const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            const dayConfig = scheduleConfig[dayNames[date.getDay()]];
             
             container.innerHTML = '';
             
-            for (let h = start; h < end; h++) {
-                const time = `${h.toString().padStart(2, '0')}:00`;
+            if (!dayConfig || !dayConfig.active) {
+                container.innerHTML = '<p class="col-span-4 text-gray-500 text-center py-8">Día no laborable</p>';
+                return;
+            }
+            
+            // Generar slots basados en la configuración del día
+            let allSlots = [];
+            dayConfig.slots.forEach(slot => {
+                let current = parseTime(slot.start);
+                const end = parseTime(slot.end);
+                while (current < end) {
+                    allSlots.push(formatTime(current));
+                    current.setMinutes(current.getMinutes() + parseInt(settings.slotDuration));
+                }
+            });
+            
+            // Ordenar
+            allSlots.sort();
+            
+            allSlots.forEach(time => {
                 const slot = document.createElement('div');
                 slot.className = 'time-slot';
                 slot.textContent = time;
                 
-                if (booked.includes(time)) {
+                const isBooked = booked.includes(time);
+                const isBlocked = manualBlocks[dateStr] && manualBlocks[dateStr].includes(time);
+                
+                if (isBooked) {
                     slot.classList.add('disabled');
+                    slot.innerHTML += ' <i class="fas fa-user-check text-xs ml-1"></i>';
+                } else if (isBlocked) {
+                    slot.classList.add('disabled');
+                    slot.style.background = 'rgba(255,0,0,0.1)';
                 } else {
                     slot.onclick = () => selectTime(time, slot);
                 }
                 
                 container.appendChild(slot);
-            }
+            });
             
             updateSubmitButton();
+        }
+
+        function parseTime(timeStr) {
+            const [hours, minutes] = timeStr.split(':').map(Number);
+            const date = new Date();
+            date.setHours(hours, minutes, 0, 0);
+            return date;
+        }
+
+        function formatTime(date) {
+            return date.toTimeString().slice(0, 5);
         }
 
         function selectTime(time, el) {
@@ -919,14 +1388,10 @@
             
             if (selectedDate && selectedTime) {
                 btn.disabled = false;
-                msg.textContent = `Fecha: ${selectedDate.toLocaleDateString()} - Hora: ${selectedTime}`;
-                msg.classList.remove('text-gray-500');
-                msg.classList.add('text-white');
+                msg.innerHTML = `<span class="text-seven-accent"><i class="fas fa-check mr-2"></i>${selectedDate.toLocaleDateString()} - ${selectedTime}</span>`;
             } else {
                 btn.disabled = true;
                 msg.textContent = 'Selecciona fecha y hora para continuar';
-                msg.classList.add('text-gray-500');
-                msg.classList.remove('text-white');
             }
         }
 
@@ -954,7 +1419,8 @@
             selectedDate = null;
             selectedTime = null;
             document.querySelectorAll('.calendar-day, .time-slot').forEach(el => el.classList.remove('selected'));
-            document.getElementById('timeSlots').innerHTML = '<p class="col-span-3 text-gray-500 text-center py-4">Selecciona una fecha primero</p>';
+            document.getElementById('selectedDateDisplay').textContent = '';
+            renderTimeSlots(new Date()); // Refresh
             updateSubmitButton();
         }
 
@@ -994,51 +1460,336 @@
             document.getElementById('loginForm').classList.add('hidden');
             document.getElementById('adminDashboard').classList.remove('hidden');
             updateAdminStats();
+            renderScheduleConfig();
             renderAppointments();
+            renderHolidays();
+        }
+
+        function showAdminTab(tabName) {
+            // Ocultar todos los contenidos
+            document.querySelectorAll('.admin-tab-content').forEach(el => el.classList.add('hidden'));
+            // Mostrar el seleccionado
+            document.getElementById(`tab-${tabName}`).classList.remove('hidden');
+            
+            // Actualizar botones
+            document.querySelectorAll('.admin-tab').forEach(btn => {
+                if (btn.dataset.tab === tabName) {
+                    btn.classList.add('bg-seven-accent', 'text-black', 'border-seven-accent');
+                    btn.classList.remove('border-white/20', 'text-white');
+                } else {
+                    btn.classList.remove('bg-seven-accent', 'text-black', 'border-seven-accent');
+                    btn.classList.add('border-white/20');
+                }
+            });
         }
 
         function updateAdminStats() {
             const apps = getAppointments();
             const today = new Date().toISOString().split('T')[0];
             
+            // Calcular inicio de semana (lunes)
+            const curr = new Date();
+            const first = curr.getDate() - curr.getDay() + 1;
+            const monday = new Date(curr.setDate(first)).toISOString().split('T')[0];
+            const sunday = new Date(curr.setDate(first + 6)).toISOString().split('T')[0];
+            
             document.getElementById('statToday').textContent = apps.filter(a => a.date === today).length;
+            document.getElementById('statWeek').textContent = apps.filter(a => a.date >= monday && a.date <= sunday).length;
             document.getElementById('statPending').textContent = apps.filter(a => a.status === 'pending').length;
             document.getElementById('statTotal').textContent = apps.length;
         }
 
+        // Configuración de Horarios
+        function renderScheduleConfig() {
+            const container = document.getElementById('scheduleContainer');
+            const days = [
+                { key: 'monday', label: 'Lunes' },
+                { key: 'tuesday', label: 'Martes' },
+                { key: 'wednesday', label: 'Miércoles' },
+                { key: 'thursday', label: 'Jueves' },
+                { key: 'friday', label: 'Viernes' },
+                { key: 'saturday', label: 'Sábado' },
+                { key: 'sunday', label: 'Domingo' }
+            ];
+            
+            container.innerHTML = days.map(day => {
+                const config = scheduleConfig[day.key];
+                const isActive = config.active;
+                
+                return `
+                    <div class="day-schedule ${!isActive ? 'disabled' : ''}" id="schedule-${day.key}">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-3">
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only peer" ${isActive ? 'checked' : ''} onchange="toggleDay('${day.key}')">
+                                    <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-seven-accent"></div>
+                                    <span class="ml-3 font-semibold text-lg">${day.label}</span>
+                                </label>
+                            </div>
+                            ${isActive ? '<span class="text-xs text-green-400 flex items-center gap-1"><i class="fas fa-check-circle"></i> Activo</span>' : '<span class="text-xs text-red-400 flex items-center gap-1"><i class="fas fa-times-circle"></i> Cerrado</span>'}
+                        </div>
+                        
+                        ${isActive ? `
+                            <div class="space-y-3 pl-14">
+                                ${config.slots.map((slot, idx) => `
+                                    <div class="flex items-center gap-3 bg-black/30 p-3 rounded-lg border border-white/5">
+                                        <span class="text-sm text-gray-400">De</span>
+                                        <input type="time" value="${slot.start}" onchange="updateSlot('${day.key}', ${idx}, 'start', this.value)" class="bg-black/50 border border-white/10 rounded px-3 py-1 text-sm focus:border-seven-accent focus:outline-none">
+                                        <span class="text-sm text-gray-400">a</span>
+                                        <input type="time" value="${slot.end}" onchange="updateSlot('${day.key}', ${idx}, 'end', this.value)" class="bg-black/50 border border-white/10 rounded px-3 py-1 text-sm focus:border-seven-accent focus:outline-none">
+                                        <button onclick="removeSlot('${day.key}', ${idx})" class="text-red-400 hover:text-red-300 ml-auto">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                `).join('')}
+                                
+                                ${config.slots.length < 2 ? `
+                                    <button onclick="addSlot('${day.key}')" class="text-sm text-seven-accent hover:text-white transition-colors flex items-center gap-2">
+                                        <i class="fas fa-plus-circle"></i> Agregar franja horaria
+                                    </button>
+                                ` : ''}
+                            </div>
+                        ` : '<p class="text-sm text-gray-500 pl-14">Día no laborable</p>'}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function toggleDay(day) {
+            scheduleConfig[day].active = !scheduleConfig[day].active;
+            renderScheduleConfig();
+        }
+
+        function updateSlot(day, slotIndex, field, value) {
+            scheduleConfig[day].slots[slotIndex][field] = value;
+        }
+
+        function addSlot(day) {
+            if (scheduleConfig[day].slots.length < 2) {
+                scheduleConfig[day].slots.push({ start: '14:00', end: '18:00' });
+                renderScheduleConfig();
+            }
+        }
+
+        function removeSlot(day, slotIndex) {
+            scheduleConfig[day].slots.splice(slotIndex, 1);
+            renderScheduleConfig();
+        }
+
+        function saveScheduleConfig() {
+            localStorage.setItem('sevenSchedule', JSON.stringify(scheduleConfig));
+            updateContactHours();
+            showToast('Configuración guardada correctamente');
+        }
+
+        function updateContactHours() {
+            // Actualizar la sección de contacto con los horarios reales
+            const dayMap = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+            const dayKeys = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            
+            dayKeys.forEach((key, idx) => {
+                const config = scheduleConfig[key];
+                const element = document.getElementById(`hours-${dayMap[idx]}`);
+                if (element) {
+                    if (config.active && config.slots.length > 0) {
+                        const timeStr = config.slots.map(s => `${s.start} - ${s.end}`).join(' / ');
+                        element.textContent = timeStr;
+                        element.className = 'text-white font-semibold';
+                    } else {
+                        element.textContent = 'Cerrado';
+                        element.className = 'text-gray-600 font-semibold';
+                    }
+                }
+            });
+        }
+
+        // Bloqueo Manual
+        function loadManualSlots() {
+            const dateInput = document.getElementById('manualDate');
+            const container = document.getElementById('manualSlotsContainer');
+            const dateStr = dateInput.value;
+            
+            if (!dateStr) {
+                container.innerHTML = '<p class="text-gray-500 text-center">Seleccioná una fecha</p>';
+                return;
+            }
+            
+            const date = new Date(dateStr);
+            const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            const dayConfig = scheduleConfig[dayNames[date.getDay()]];
+            
+            if (!dayConfig || !dayConfig.active) {
+                container.innerHTML = '<p class="text-red-400 text-center">Día no laborable según configuración</p>';
+                return;
+            }
+            
+            // Generar slots
+            let slots = [];
+            dayConfig.slots.forEach(slot => {
+                let current = parseTime(slot.start);
+                const end = parseTime(slot.end);
+                while (current < end) {
+                    slots.push(formatTime(current));
+                    current.setMinutes(current.getMinutes() + parseInt(settings.slotDuration));
+                }
+            });
+            
+            const appointments = getAppointments();
+            const booked = appointments.filter(a => a.date === dateStr).map(a => a.time);
+            const blocked = manualBlocks[dateStr] || [];
+            
+            container.innerHTML = `
+                <div class="flex flex-wrap gap-2">
+                    ${slots.map(time => {
+                        const isBooked = booked.includes(time);
+                        const isBlocked = blocked.includes(time);
+                        
+                        if (isBooked) {
+                            return `<div class="slot-manual bg-seven-accent text-black font-bold cursor-default">
+                                ${time} <i class="fas fa-user-check ml-1"></i>
+                            </div>`;
+                        }
+                        
+                        return `<div class="slot-manual ${isBlocked ? 'blocked' : 'available'}" 
+                            onclick="toggleManualBlock('${dateStr}', '${time}')">
+                            ${time} ${isBlocked ? '<i class="fas fa-lock ml-1"></i>' : '<i class="fas fa-unlock ml-1"></i>'}
+                        </div>`;
+                    }).join('')}
+                </div>
+                <p class="text-xs text-gray-500 mt-4 text-center">Hacé clic en un horario para bloquearlo o liberarlo</p>
+            `;
+        }
+
+        function toggleManualBlock(date, time) {
+            if (!manualBlocks[date]) {
+                manualBlocks[date] = [];
+            }
+            
+            const idx = manualBlocks[date].indexOf(time);
+            if (idx > -1) {
+                manualBlocks[date].splice(idx, 1);
+            } else {
+                manualBlocks[date].push(time);
+            }
+            
+            localStorage.setItem('sevenManualBlocks', JSON.stringify(manualBlocks));
+            loadManualSlots();
+            showToast(idx > -1 ? 'Horario liberado' : 'Horario bloqueado');
+        }
+
+        // Holidays
+        function renderHolidays() {
+            const list = document.getElementById('holidaysList');
+            if (holidays.length === 0) {
+                list.innerHTML = '<p class="text-gray-500 text-center py-4">No hay días especiales configurados</p>';
+                return;
+            }
+            
+            list.innerHTML = holidays.map((h, idx) => `
+                <div class="flex items-center justify-between bg-black/30 p-4 rounded-xl border border-white/10">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-calendar-times text-red-400"></i>
+                        <div>
+                            <p class="font-semibold">${new Date(h.date).toLocaleDateString('es-ES')}</p>
+                            ${h.reason ? `<p class="text-xs text-gray-400">${h.reason}</p>` : ''}
+                        </div>
+                    </div>
+                    <button onclick="removeHoliday(${idx})" class="text-red-400 hover:text-red-300 p-2">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function addHoliday() {
+            const date = document.getElementById('holidayDate').value;
+            const reason = document.getElementById('holidayReason').value;
+            
+            if (!date) {
+                showToast('Seleccioná una fecha', 'error');
+                return;
+            }
+            
+            holidays.push({ date, reason });
+            holidays.sort((a, b) => new Date(a.date) - new Date(b.date));
+            localStorage.setItem('sevenHolidays', JSON.stringify(holidays));
+            
+            document.getElementById('holidayDate').value = '';
+            document.getElementById('holidayReason').value = '';
+            
+            renderHolidays();
+            showToast('Día no laborable agregado');
+        }
+
+        function removeHoliday(index) {
+            holidays.splice(index, 1);
+            localStorage.setItem('sevenHolidays', JSON.stringify(holidays));
+            renderHolidays();
+            showToast('Día eliminado');
+        }
+
+        // Settings
+        function saveSettings() {
+            settings.slotDuration = document.getElementById('slotDuration').value;
+            settings.minAdvance = document.getElementById('minAdvance').value;
+            localStorage.setItem('sevenSettings', JSON.stringify(settings));
+            showToast('Configuración actualizada');
+        }
+
+        function clearAllData() {
+            if (!confirm('¿Estás seguro? Se borrarán TODOS los turnos y configuraciones. Esta acción no se puede deshacer.')) return;
+            
+            localStorage.removeItem('sevenAppointments');
+            localStorage.removeItem('sevenManualBlocks');
+            localStorage.removeItem('sevenHolidays');
+            showToast('Todos los datos han sido borrados');
+            updateAdminStats();
+            renderAppointments();
+        }
+
+        // Appointments List
         function renderAppointments() {
             const list = document.getElementById('appointmentsList');
-            const apps = getAppointments().sort((a, b) => new Date(b.date) - new Date(a.date));
+            const filter = document.getElementById('filterStatus').value;
+            let apps = getAppointments().sort((a, b) => new Date(b.date + 'T' + b.time) - new Date(a.date + 'T' + a.time));
+            
+            if (filter !== 'all') {
+                apps = apps.filter(a => a.status === filter);
+            }
             
             if (apps.length === 0) {
-                list.innerHTML = '<p class="text-gray-500 text-center py-8">No hay turnos reservados</p>';
+                list.innerHTML = '<p class="text-gray-500 text-center py-8">No hay turnos</p>';
                 return;
             }
             
             list.innerHTML = apps.map(app => `
-                <div class="bg-black p-6 rounded-2xl border border-gray-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                    <div>
-                        <div class="flex items-center gap-3 mb-1">
+                <div class="bg-black/40 p-6 rounded-2xl border border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-2 flex-wrap">
                             <h4 class="font-bold text-lg">${app.name}</h4>
-                            <span class="px-2 py-1 rounded text-xs ${app.status === 'confirmed' ? 'bg-green-500 text-black' : 'bg-yellow-500 text-black'}">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold ${app.status === 'confirmed' ? 'bg-green-500/20 text-green-400 border border-green-500/30' : 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'}">
                                 ${app.status === 'confirmed' ? 'Confirmado' : 'Pendiente'}
                             </span>
                         </div>
-                        <p class="text-gray-400 text-sm">${app.service}</p>
-                        <p class="text-gray-500 text-sm mt-1">
-                            <i class="fas fa-calendar mr-2"></i>${new Date(app.date).toLocaleDateString()} 
-                            <i class="fas fa-clock ml-3 mr-2"></i>${app.time}
-                        </p>
-                        <p class="text-gray-600 text-xs mt-1">${app.phone} | ${app.email}</p>
+                        <p class="text-seven-accent font-semibold mb-1">${app.service}</p>
+                        <div class="flex items-center gap-4 text-sm text-gray-400 flex-wrap">
+                            <span><i class="fas fa-calendar mr-2"></i>${new Date(app.date).toLocaleDateString()}</span>
+                            <span><i class="fas fa-clock mr-2"></i>${app.time}</span>
+                            <span><i class="fas fa-phone mr-2"></i>${app.phone}</span>
+                        </div>
                     </div>
                     <div class="flex gap-2 w-full md:w-auto">
                         ${app.status !== 'confirmed' ? `
-                            <button onclick="confirmAppointment(${app.id})" class="flex-1 md:flex-none bg-white text-black px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-200">
-                                Confirmar
+                            <button onclick="confirmAppointment(${app.id})" class="flex-1 md:flex-none bg-seven-accent text-black px-4 py-2 rounded-lg text-sm font-bold hover:bg-white transition-colors">
+                                <i class="fas fa-check mr-2"></i>Confirmar
                             </button>
-                        ` : ''}
-                        <button onclick="deleteAppointment(${app.id})" class="flex-1 md:flex-none border border-red-500 text-red-500 px-4 py-2 rounded-full text-sm hover:bg-red-500 hover:text-white transition-colors">
-                            Eliminar
+                        ` : `
+                            <button onclick="unconfirmAppointment(${app.id})" class="flex-1 md:flex-none border border-yellow-500 text-yellow-500 px-4 py-2 rounded-lg text-sm hover:bg-yellow-500 hover:text-black transition-colors">
+                                <i class="fas fa-undo mr-2"></i>Pendiente
+                            </button>
+                        `}
+                        <button onclick="deleteAppointment(${app.id})" class="flex-1 md:flex-none border border-red-500 text-red-500 px-4 py-2 rounded-lg text-sm hover:bg-red-500 hover:text-white transition-colors">
+                            <i class="fas fa-trash"></i>
                         </button>
                     </div>
                 </div>
@@ -1057,6 +1808,18 @@
             }
         }
 
+        function unconfirmAppointment(id) {
+            const apps = getAppointments();
+            const app = apps.find(a => a.id === id);
+            if (app) {
+                app.status = 'pending';
+                localStorage.setItem('sevenAppointments', JSON.stringify(apps));
+                renderAppointments();
+                updateAdminStats();
+                showToast('Turno marcado como pendiente');
+            }
+        }
+
         function deleteAppointment(id) {
             if (!confirm('¿Eliminar este turno?')) return;
             let apps = getAppointments().filter(a => a.id !== id);
@@ -1064,48 +1827,6 @@
             renderAppointments();
             updateAdminStats();
             showToast('Turno eliminado');
-        }
-
-        // Availability
-        function initAvailabilityUI() {
-            document.querySelectorAll('.day-btn').forEach(btn => {
-                const day = parseInt(btn.dataset.day);
-                if (availability.days.includes(day)) {
-                    btn.classList.add('bg-white', 'text-black', 'border-white');
-                    btn.classList.remove('border-gray-600');
-                }
-                btn.onclick = () => {
-                    btn.classList.toggle('bg-white');
-                    btn.classList.toggle('text-black');
-                    btn.classList.toggle('border-white');
-                    btn.classList.toggle('border-gray-600');
-                };
-            });
-            
-            document.getElementById('startTime').value = availability.startTime;
-            document.getElementById('endTime').value = availability.endTime;
-        }
-
-        function saveAvailability() {
-            const selectedDays = [];
-            document.querySelectorAll('.day-btn').forEach(btn => {
-                if (btn.classList.contains('bg-white')) {
-                    selectedDays.push(parseInt(btn.dataset.day));
-                }
-            });
-            
-            availability = {
-                days: selectedDays,
-                startTime: document.getElementById('startTime').value,
-                endTime: document.getElementById('endTime').value
-            };
-            
-            localStorage.setItem('sevenAvailability', JSON.stringify(availability));
-            showToast('Disponibilidad actualizada');
-            
-            // Refresh calendar
-            document.getElementById('calendar').innerHTML = '';
-            initCalendar();
         }
 
         // UI Helpers
