@@ -741,79 +741,14 @@ const DEFAULT_SCHEDULE = {
                     <p class="text-gray-400 max-w-2xl mx-auto">Cada servicio está diseñado para brindarte la mejor experiencia de cuidado personal con productos premium y técnicas profesionales.</p>
                 </div>
 
-                <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
-                    <div class="service-card rounded-3xl overflow-hidden hover-lift group">
-                        <div class="h-56 relative overflow-hidden">
-                            <img src="https://kimi-web-img.moonshot.cn/img/cdn.shopify.com/0622b868942b721772da0c56c2e3f77defe72385.webp" alt="Corte de pelo" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-seven-dark to-transparent"></div>
-                            <div class="absolute bottom-4 left-4">
-                                <i class="fas fa-cut text-3xl text-seven-accent"></i>
-                            </div>
-                        </div>
-                        <div class="p-8">
-                            <h3 class="font-seven text-2xl font-bold mb-2">Corte Clásico</h3>
-                            <p class="text-gray-400 mb-4">Incluye lavado, corte a máquina y/o tijera, styling con productos premium y masaje capilar.</p>
-                            <div class="flex justify-between items-center pt-4 border-t border-white/10">
-                                <span class="text-3xl font-bold text-seven-accent">$3.000</span>
-                                <button onclick="selectService('Corte de Pelo')" class="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-seven-accent transition-all">
-                                    Reservar <i class="fas fa-arrow-right ml-2"></i>
-                                </button>
-                            </div>
-                        </div>
+                <!-- Servicios dinámicos -->
+                <div id="publicServicesGrid" class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
+                    <!-- Los servicios se cargan dinámicamente -->
+                    <div class="col-span-full text-center py-12 text-gray-500">
+                        <i class="fas fa-spinner fa-spin text-3xl mb-4"></i>
+                        <p>Cargando servicios...</p>
                     </div>
-
-                    <div class="service-card rounded-3xl overflow-hidden hover-lift group">
-                        <div class="h-56 relative overflow-hidden">
-                            <img src="https://kimi-web-img.moonshot.cn/img/images.squarespace-cdn.com/f5e673a94f10c5c831adf022db21897a662b235a.JPG" alt="Barba" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-seven-dark to-transparent"></div>
-                            <div class="absolute bottom-4 left-4">
-                                <i class="fas fa-air-freshener text-3xl text-seven-accent"></i>
-                            </div>
-                        </div>
-                        <div class="p-8">
-                            <h3 class="font-seven text-2xl font-bold mb-2">Arreglo de Barba</h3>
-                            <p class="text-gray-400 mb-4">Perfilado con navaja, recorte de detalles, hidratación con toallas calientes y aceites esenciales.</p>
-                            <div class="flex justify-between items-center pt-4 border-t border-white/10">
-                                <span class="text-3xl font-bold text-seven-accent">$2.000</span>
-                                <button onclick="selectService('Arreglo de Barba')" class="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-seven-accent transition-all">
-                                    Reservar <i class="fas fa-arrow-right ml-2"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="service-card rounded-3xl overflow-hidden hover-lift group">
-                        <div class="h-56 relative overflow-hidden">
-                            <img src="https://kimi-web-img.moonshot.cn/img/s3-media0.fl.yelpcdn.com/344afa5cfb62de662c0dfbfbac50590234def780.jpg" alt="Combo" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-seven-dark to-transparent"></div>
-                            <div class="absolute bottom-4 left-4">
-                                <i class="fas fa-magic text-3xl text-seven-accent"></i>
-                            </div>
-                        </div>
-                        <div class="p-8">
-                            <h3 class="font-seven text-2xl font-bold mb-2">Combo Corte + Barba</h3>
-                            <p class="text-gray-400 mb-4">Pack completo de cuidado. Incluye ambos servicios con un 10% de descuento sobre el precio regular.</p>
-                            <div class="flex justify-between items-center pt-4 border-t border-white/10">
-                                <span class="text-3xl font-bold text-seven-accent">$4.500</span>
-                                <button onclick="selectService('Combo Corte + Barba')" class="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-seven-accent transition-all">
-                                    Reservar <i class="fas fa-arrow-right ml-2"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="service-card rounded-3xl overflow-hidden hover-lift group">
-                        <div class="h-56 relative overflow-hidden">
-                            <img src="https://kimi-web-img.moonshot.cn/img/cdn.shopify.com/e25136de694ad36e465ab09e4f4461c1be977455.webp" alt="Afeitado" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-seven-dark to-transparent"></div>
-                            <div class="absolute bottom-4 left-4">
-                                <i class="fas fa-razor text-3xl text-seven-accent"></i>
-                            </div>
-                        </div>
-                        <div class="p-8">
-                            <h3 class="font-seven text-2xl font-bold mb-2">Afeitado Clásico</h3>
-                            <p class="text-gray-400 mb-4">Tradicional afeitado con navaja, preparación con cremas calientes, vapor y cuidado post-afeitado.</p>
-                            <div class="flex justify-between items-center pt-4 border-t border-white/10">
+                </div>
                                 <span class="text-3xl font-bold text-seven-accent">$2.500</span>
                                 <button onclick="selectService('Afeitado Clásico')" class="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-seven-accent transition-all">
                                     Reservar <i class="fas fa-arrow-right ml-2"></i>
@@ -1201,6 +1136,9 @@ const DEFAULT_SCHEDULE = {
                         <button onclick="showAdminTab('gallery')" class="admin-tab px-6 py-3 rounded-full border border-white/20 hover:border-seven-accent transition-all" data-tab="gallery">
                             <i class="fas fa-images mr-2"></i>Galería
                         </button>
+                        <button onclick="showAdminTab('services')" class="admin-tab px-6 py-3 rounded-full border border-white/20 hover:border-seven-accent transition-all" data-tab="services">
+                            <i class="fas fa-cut mr-2"></i>Servicios
+                        </button>
                         <button onclick="showAdminTab('settings')" class="admin-tab px-6 py-3 rounded-full border border-white/20 hover:border-seven-accent transition-all" data-tab="settings">
                             <i class="fas fa-cog mr-2"></i>Config
                         </button>
@@ -1364,6 +1302,74 @@ const DEFAULT_SCHEDULE = {
                         </div>
                     </div>
 
+                    <!-- Tab Content: Services -->
+                    <div id="tab-services" class="admin-tab-content hidden">
+                        <div class="bg-seven-gray/30 p-8 rounded-3xl border border-white/10">
+                            <div class="flex justify-between items-center mb-6 flex-wrap gap-4">
+                                <div>
+                                    <h3 class="font-seven text-2xl font-bold">Gestión de Servicios</h3>
+                                    <p class="text-gray-400 text-sm mt-1">Editá precios, nombres y duración de los servicios</p>
+                                </div>
+                                <button onclick="addNewService()" class="bg-seven-accent text-black px-6 py-3 rounded-lg font-bold hover:bg-white transition-all">
+                                    <i class="fas fa-plus mr-2"></i>Nuevo Servicio
+                                </button>
+                            </div>
+
+                            <!-- Lista de servicios -->
+                            <div id="servicesList" class="space-y-4">
+                                <!-- Los servicios se cargan dinámicamente -->
+                            </div>
+
+                            <!-- Agregar nuevo servicio (formulario oculto) -->
+                            <div id="newServiceForm" class="hidden mt-6 p-6 bg-black/30 rounded-2xl border border-seven-accent/30">
+                                <h4 class="font-bold mb-4 text-seven-accent">Nuevo Servicio</h4>
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <label class="block text-sm text-gray-400 mb-2">Nombre del Servicio</label>
+                                        <input type="text" id="newServiceName" placeholder="Ej: Corte Clásico" 
+                                            class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:border-seven-accent focus:outline-none">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm text-gray-400 mb-2">Precio ($)</label>
+                                        <input type="number" id="newServicePrice" placeholder="3000" 
+                                            class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:border-seven-accent focus:outline-none">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm text-gray-400 mb-2">Duración (minutos)</label>
+                                        <select id="newServiceDuration" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:border-seven-accent focus:outline-none text-white">
+                                            <option value="30">30 minutos</option>
+                                            <option value="45">45 minutos</option>
+                                            <option value="60" selected>1 hora</option>
+                                            <option value="90">1 hora 30 min</option>
+                                            <option value="120">2 horas</option>
+                                        </select>
+                                    </div>
+                                    <div class="flex items-end">
+                                        <label class="flex items-center gap-3 cursor-pointer">
+                                            <input type="checkbox" id="newServiceActive" checked class="w-5 h-5 rounded border-white/20 bg-black/50 text-seven-accent focus:ring-seven-accent">
+                                            <span class="text-gray-300">Servicio activo</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="flex gap-3">
+                                    <button onclick="saveNewService()" class="bg-seven-accent text-black px-6 py-3 rounded-xl font-bold hover:bg-white transition-all">
+                                        <i class="fas fa-save mr-2"></i>Guardar Servicio
+                                    </button>
+                                    <button onclick="cancelNewService()" class="border border-white/20 px-6 py-3 rounded-xl hover:border-red-500 hover:text-red-400 transition-all">
+                                        Cancelar
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 pt-6 border-t border-white/10">
+                                <button onclick="saveServicesConfig()" class="bg-green-500/20 border border-green-500 text-green-400 px-8 py-3 rounded-full font-bold hover:bg-green-500 hover:text-white transition-all">
+                                    <i class="fas fa-save mr-2"></i>Guardar Cambios
+                                </button>
+                                <p class="text-sm text-gray-500 mt-2">Los cambios se aplicarán inmediatamente en la página de reservas.</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Tab Content: Settings -->
                     <div id="tab-settings" class="admin-tab-content hidden">
                         <div class="bg-seven-gray/30 p-8 rounded-3xl border border-white/10">
@@ -1498,6 +1504,22 @@ const DEFAULT_SCHEDULE = {
             try { initCounters(); } catch(e) { console.log('Counters error:', e); }
             try { updateContactHours(); } catch(e) { console.log('Hours error:', e); }
             try { updateConnectionStatus(); } catch(e) { console.log('Connection error:', e); }
+            
+            // Cargar configuración de servicios
+            try { 
+                const savedServices = localStorage.getItem('sevenServices');
+                if (savedServices) {
+                    servicesConfig = JSON.parse(savedServices);
+                    // Actualizar CONFIG.SERVICES
+                    const newServices = {};
+                    servicesConfig.filter(s => s.active).forEach(svc => {
+                        newServices[svc.name] = { price: svc.price, duration: svc.duration };
+                    });
+                    CONFIG.SERVICES = newServices;
+                }
+                updateBookingServiceSelect();
+                renderPublicServices();
+            } catch(e) { console.log('Services error:', e); }
             
             // Configurar valores iniciales
             if (document.getElementById('slotDuration')) {
@@ -2082,6 +2104,7 @@ Nos vemos! ✂️`;
             renderHolidays();
             renderAdminGallery();
             updateStorageBar();
+            renderServicesList();
         }
 
         function showAdminTab(tabName) {
@@ -2092,6 +2115,11 @@ Nos vemos! ✂️`;
             if (tabName === 'gallery') {
                 renderAdminGallery();
                 updateStorageBar();
+            }
+            
+            // Actualizar servicios si se abre esa pestaña
+            if (tabName === 'services') {
+                renderServicesList();
             }
             
             document.querySelectorAll('.admin-tab').forEach(btn => {
@@ -2466,6 +2494,167 @@ Nos vemos! ✂️`;
         // CONFIGURACIÓN
         // ==========================================
 
+        // ==========================================
+        // GESTIÓN DE SERVICIOS
+        // ==========================================
+        
+        let servicesConfig = JSON.parse(localStorage.getItem('sevenServices')) || [
+            { id: 'svc_1', name: 'Corte de Pelo', price: 3000, duration: 60, active: true },
+            { id: 'svc_2', name: 'Arreglo de Barba', price: 2000, duration: 30, active: true },
+            { id: 'svc_3', name: 'Combo Corte + Barba', price: 4500, duration: 90, active: true },
+            { id: 'svc_4', name: 'Afeitado Clásico', price: 2500, duration: 45, active: true }
+        ];
+        
+        function renderServicesList() {
+            const container = document.getElementById('servicesList');
+            if (!container) return;
+            
+            if (servicesConfig.length === 0) {
+                container.innerHTML = '<p class="text-gray-500 text-center py-8">No hay servicios configurados</p>';
+                return;
+            }
+            
+            container.innerHTML = servicesConfig.map((svc, index) => `
+                <div class="bg-black/30 p-6 rounded-2xl border ${svc.active ? 'border-white/10' : 'border-red-500/30 opacity-60'}">
+                    <div class="grid md:grid-cols-5 gap-4 items-end">
+                        <div class="md:col-span-2">
+                            <label class="block text-xs text-gray-500 mb-1">Nombre del Servicio</label>
+                            <input type="text" value="${svc.name}" onchange="updateService(${index}, 'name', this.value)"
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2 focus:border-seven-accent focus:outline-none text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-500 mb-1">Precio ($)</label>
+                            <input type="number" value="${svc.price}" onchange="updateService(${index}, 'price', this.value)"
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2 focus:border-seven-accent focus:outline-none text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-500 mb-1">Duración</label>
+                            <select onchange="updateService(${index}, 'duration', this.value)"
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2 focus:border-seven-accent focus:outline-none text-sm">
+                                <option value="30" ${svc.duration == 30 ? 'selected' : ''}>30 min</option>
+                                <option value="45" ${svc.duration == 45 ? 'selected' : ''}>45 min</option>
+                                <option value="60" ${svc.duration == 60 ? 'selected' : ''}>1 hora</option>
+                                <option value="90" ${svc.duration == 90 ? 'selected' : ''}>1h 30m</option>
+                                <option value="120" ${svc.duration == 120 ? 'selected' : ''}>2 horas</option>
+                            </select>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" ${svc.active ? 'checked' : ''} onchange="updateService(${index}, 'active', this.checked)"
+                                    class="w-4 h-4 rounded border-white/20 bg-black/50 text-seven-accent">
+                                <span class="text-xs ${svc.active ? 'text-green-400' : 'text-red-400'}">${svc.active ? 'Activo' : 'Inactivo'}</span>
+                            </label>
+                            <button onclick="deleteService(${index})" class="text-red-400 hover:text-red-300 ml-auto" title="Eliminar servicio">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Actualizar también el select de servicios en el formulario de reservas
+            updateBookingServiceSelect();
+        }
+        
+        function updateService(index, field, value) {
+            if (field === 'price' || field === 'duration') {
+                value = parseInt(value) || 0;
+            }
+            servicesConfig[index][field] = value;
+            renderServicesList();
+        }
+        
+        function deleteService(index) {
+            showConfirmModal('¿Eliminar este servicio?', 'Esta acción no se puede deshacer.', () => {
+                servicesConfig.splice(index, 1);
+                renderServicesList();
+                showToast('Servicio eliminado');
+            });
+        }
+        
+        function addNewService() {
+            document.getElementById('newServiceForm').classList.remove('hidden');
+            document.getElementById('newServiceName').focus();
+        }
+        
+        function cancelNewService() {
+            document.getElementById('newServiceForm').classList.add('hidden');
+            document.getElementById('newServiceName').value = '';
+            document.getElementById('newServicePrice').value = '';
+            document.getElementById('newServiceDuration').value = '60';
+            document.getElementById('newServiceActive').checked = true;
+        }
+        
+        function saveNewService() {
+            const name = document.getElementById('newServiceName').value.trim();
+            const price = parseInt(document.getElementById('newServicePrice').value) || 0;
+            const duration = parseInt(document.getElementById('newServiceDuration').value) || 60;
+            const active = document.getElementById('newServiceActive').checked;
+            
+            if (!name) {
+                showToast('Ingresá un nombre para el servicio', 'error');
+                return;
+            }
+            if (price <= 0) {
+                showToast('Ingresá un precio válido', 'error');
+                return;
+            }
+            
+            servicesConfig.push({
+                id: 'svc_' + Date.now(),
+                name: name,
+                price: price,
+                duration: duration,
+                active: active
+            });
+            
+            cancelNewService();
+            renderServicesList();
+            showToast('Servicio agregado');
+        }
+        
+        function saveServicesConfig() {
+            localStorage.setItem('sevenServices', JSON.stringify(servicesConfig));
+            
+            // Actualizar CONFIG.SERVICES para que se use en toda la app
+            const newServices = {};
+            servicesConfig.filter(s => s.active).forEach(svc => {
+                newServices[svc.name] = { price: svc.price, duration: svc.duration };
+            });
+            
+            // Actualizar el objeto CONFIG global
+            CONFIG.SERVICES = newServices;
+            
+            showToast('Servicios guardados correctamente');
+            
+            // Actualizar el select de servicios en el formulario
+            updateBookingServiceSelect();
+            renderPublicServices();
+        }
+        
+        function updateBookingServiceSelect() {
+            const select = document.getElementById('service');
+            if (!select) return;
+            
+            const currentValue = select.value;
+            
+            select.innerHTML = '<option value="">Selecciona un servicio</option>' +
+                servicesConfig.filter(s => s.active).map(svc => 
+                    `<option value="${svc.name}">${svc.name} - $${svc.price.toLocaleString()}</option>`
+                ).join('');
+            
+            // Restaurar valor seleccionado si aún existe
+            if (currentValue && servicesConfig.find(s => s.name === currentValue && s.active)) {
+                select.value = currentValue;
+            }
+        }
+        
+        function updateServiceCards() {
+            // Esta función actualizaría los precios en las tarjetas de servicios
+            // en la sección pública si es necesario
+            // Por ahora solo recargamos la página si es necesario
+        }
+        
         function saveSettings() {
             settings.slotDuration = document.getElementById('slotDuration').value;
             settings.minAdvance = document.getElementById('minAdvance').value;
@@ -2837,6 +3026,76 @@ Nos vemos! ✂️`;
                 if (e.target === modal) modal.remove();
             };
             document.body.appendChild(modal);
+        }
+        
+        // ==========================================
+        // SERVICIOS PÚBLICOS
+        // ==========================================
+        
+        function renderPublicServices() {
+            const container = document.getElementById('publicServicesGrid');
+            if (!container) return;
+            
+            const activeServices = servicesConfig.filter(s => s.active);
+            
+            if (activeServices.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12 text-gray-500">
+                        <i class="fas fa-cut text-4xl mb-4 opacity-30"></i>
+                        <p>No hay servicios disponibles en este momento</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Iconos para cada tipo de servicio
+            const getIcon = (name) => {
+                if (name.toLowerCase().includes('barba')) return 'fa-air-freshener';
+                if (name.toLowerCase().includes('afeita')) return 'fa-razor';
+                if (name.toLowerCase().includes('combo')) return 'fa-magic';
+                return 'fa-cut';
+            };
+            
+            // Descripciones por defecto
+            const getDescription = (name) => {
+                if (name.toLowerCase().includes('barba')) return 'Perfilado con navaja, recorte de detalles, hidratación con toallas calientes.';
+                if (name.toLowerCase().includes('afeita')) return 'Tradicional afeitado con navaja, preparación con cremas calientes y vapor.';
+                if (name.toLowerCase().includes('combo')) return 'Pack completo de cuidado. Incluye corte + barba con precio especial.';
+                return 'Incluye lavado, corte a máquina y/o tijera, styling con productos premium.';
+            };
+            
+            container.innerHTML = activeServices.map((svc, index) => {
+                const icon = getIcon(svc.name);
+                const desc = getDescription(svc.name);
+                
+                return `
+                    <div class="service-card rounded-3xl overflow-hidden hover-lift group">
+                        <div class="h-56 relative overflow-hidden bg-seven-gray">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <i class="fas ${icon} text-8xl text-seven-accent/20"></i>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-seven-dark to-transparent"></div>
+                            <div class="absolute bottom-4 left-4">
+                                <i class="fas ${icon} text-3xl text-seven-accent"></i>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-seven text-2xl font-bold mb-2">${svc.name}</h3>
+                            <p class="text-gray-400 mb-4">${desc}</p>
+                            <div class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+                                <i class="far fa-clock"></i>
+                                <span>${svc.duration} minutos</span>
+                            </div>
+                            <div class="flex justify-between items-center pt-4 border-t border-white/10">
+                                <span class="text-3xl font-bold text-seven-accent">$${svc.price.toLocaleString()}</span>
+                                <button onclick="selectService('${svc.name}')" class="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-seven-accent transition-all">
+                                    Reservar <i class="fas fa-arrow-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
         }
         
         // Drag & Drop para galería
