@@ -12,7 +12,36 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="backend/config.js"></script>
+    <script>
+// ============================================
+// CONFIGURACIÓN INTEGRADA - Seven Barbershop
+// ============================================
+const CONFIG = {
+  GOOGLE_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbxrtMxuVZS2UgNB34uiQN_fciIVaEOn93aeldI1QRxstYdSusdw-SXSBgg8xWkLPf4B/exec',
+  ADMIN_EMAIL: 'ruizsantino28@gmail.com',
+  USE_GOOGLE_SHEETS: true,
+  ENABLE_OFFLINE_MODE: true,
+  WHATSAPP_NUMBER: '542604812928',
+  SLOT_DURATION: 60,
+  MIN_ADVANCE_HOURS: 0,
+  SERVICES: {
+    'Corte de Pelo': { price: 3000, duration: 60 },
+    'Arreglo de Barba': { price: 2000, duration: 30 },
+    'Combo Corte + Barba': { price: 4500, duration: 90 },
+    'Afeitado Clásico': { price: 2500, duration: 45 }
+  }
+};
+
+const DEFAULT_SCHEDULE = {
+  monday: { active: true, slots: [{ start: '09:00', end: '13:00' }, { start: '17:00', end: '21:00' }] },
+  tuesday: { active: true, slots: [{ start: '09:00', end: '13:00' }, { start: '17:00', end: '21:00' }] },
+  wednesday: { active: true, slots: [{ start: '09:00', end: '13:00' }, { start: '17:00', end: '21:00' }] },
+  thursday: { active: true, slots: [{ start: '09:00', end: '13:00' }, { start: '17:00', end: '21:00' }] },
+  friday: { active: true, slots: [{ start: '09:00', end: '13:00' }, { start: '17:00', end: '21:00' }] },
+  saturday: { active: true, slots: [{ start: '09:00', end: '13:00' }] },
+  sunday: { active: false, slots: [] }
+};
+</script>
     <script>
         tailwind.config = {
             theme: {
@@ -1455,16 +1484,20 @@
         // ==========================================
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Preloader
+            // Preloader - SIEMPRE ocultar después de 1.5s, incluso con errores
             setTimeout(() => {
-                document.getElementById('preloader').style.opacity = '0';
-                setTimeout(() => document.getElementById('preloader').remove(), 500);
+                const preloader = document.getElementById('preloader');
+                if (preloader) {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => preloader.remove(), 500);
+                }
             }, 1500);
 
-            initCalendar();
-            initCounters();
-            updateContactHours();
-            updateConnectionStatus();
+            // Inicializaciones con try-catch para no bloquear la página
+            try { initCalendar(); } catch(e) { console.log('Calendar error:', e); }
+            try { initCounters(); } catch(e) { console.log('Counters error:', e); }
+            try { updateContactHours(); } catch(e) { console.log('Hours error:', e); }
+            try { updateConnectionStatus(); } catch(e) { console.log('Connection error:', e); }
             
             // Configurar valores iniciales
             if (document.getElementById('slotDuration')) {
@@ -1493,6 +1526,15 @@
             // Online/Offline detection
             window.addEventListener('online', updateConnectionStatus);
             window.addEventListener('offline', updateConnectionStatus);
+            
+            // Inicializar galería y storage
+            try {
+                renderPublicGallery();
+                updateStorageBar();
+                setupGalleryDropzone();
+            } catch (e) {
+                console.log('Error inicializando galería:', e);
+            }
         });
 
         // ==========================================
@@ -2908,13 +2950,6 @@ Nos vemos! ✂️`;
             showToast('Imágenes de demo restauradas');
         }
         
-        // Cargar galería al iniciar
-        document.addEventListener('DOMContentLoaded', () => {
-            renderPublicGallery();
-            updateStorageBar();
-            setupGalleryDropzone();
-        });
-
         function initCounters() {
             const counters = document.querySelectorAll('.counter');
             const observer = new IntersectionObserver((entries) => {
